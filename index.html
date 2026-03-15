@@ -7,8 +7,6 @@
 
 <title>Mock Test</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -30,9 +28,7 @@ border-radius:10px;
 box-shadow:0 0 12px rgba(0,0,0,0.2);
 }
 
-.center{
-text-align:center;
-}
+.center{text-align:center}
 
 button{
 background:#007bff;
@@ -44,19 +40,21 @@ font-size:16px;
 cursor:pointer;
 }
 
-button:hover{
-background:#0056b3;
-}
+button:hover{background:#0056b3}
 
-.question{
-display:none;
-}
+.question{display:none}
 
 .timer{
 font-size:25px;
 font-weight:bold;
 color:red;
 text-align:center;
+}
+
+.review{
+background:#f2f2f2;
+padding:15px;
+margin-top:20px;
 }
 
 </style>
@@ -76,13 +74,55 @@ let answers={
 5:"D"
 };
 
+let questions={
+
+1:{
+q:"भारत की राजधानी क्या है?",
+A:"दिल्ली",
+B:"मुंबई",
+C:"कोलकाता",
+D:"चेन्नई"
+},
+
+2:{
+q:"2 + 2 = ?",
+A:"3",
+B:"4",
+C:"5",
+D:"6"
+},
+
+3:{
+q:"भारत का राष्ट्रीय पशु कौन सा है?",
+A:"शेर",
+B:"हाथी",
+C:"बाघ",
+D:"घोड़ा"
+},
+
+4:{
+q:"भारत का राष्ट्रीय ध्वज किसने डिजाइन किया?",
+A:"पिंगली वेंकैया",
+B:"गांधी जी",
+C:"नेहरू",
+D:"पटेल"
+},
+
+5:{
+q:"सूर्य किस दिशा से उगता है?",
+A:"पश्चिम",
+B:"उत्तर",
+C:"दक्षिण",
+D:"पूर्व"
+}
+
+};
+
 let userAnswers={};
 
 function nextCover(){
-
 document.getElementById("cover").style.display="none";
 document.getElementById("formBox").style.display="block";
-
 }
 
 function startCountdown(){
@@ -140,11 +180,43 @@ document.getElementById("q"+current).style.display="block";
 
 }else{
 
-document.getElementById("result").innerHTML="Score: "+score+"/5";
-
-document.getElementById("resultBox").style.display="block";
+showResult();
 
 }
+
+}
+
+function showResult(){
+
+document.getElementById("result").innerHTML="Score: "+score+"/5";
+
+let reviewHTML="";
+
+for(let i=1;i<=5;i++){
+
+let q=questions[i];
+
+reviewHTML+=`
+<div class="review">
+
+<b>Q${i}: ${q.q}</b><br><br>
+
+A: ${q.A}<br>
+B: ${q.B}<br>
+C: ${q.C}<br>
+D: ${q.D}<br><br>
+
+<b>Your Answer:</b> ${userAnswers[i] || "Not Attempted"}<br>
+<b>Correct Answer:</b> ${answers[i]}
+
+</div>
+`;
+
+}
+
+document.getElementById("reviewBox").innerHTML=reviewHTML;
+
+document.getElementById("resultBox").style.display="block";
 
 }
 
@@ -152,22 +224,40 @@ function downloadPDF(){
 
 const { jsPDF } = window.jspdf;
 
-let element=document.getElementById("resultBox");
+let doc=new jsPDF();
 
-html2canvas(element).then(canvas=>{
+let y=20;
 
-let img=canvas.toDataURL("image/png");
+doc.text("Mock Test Result",20,y); y+=10;
 
-let pdf=new jsPDF();
+doc.text("Name: "+name,20,y); y+=8;
+doc.text("Phone: "+phone,20,y); y+=8;
 
-let width=190;
-let height=(canvas.height*width)/canvas.width;
+doc.text("Score: "+score+"/5",20,y); y+=10;
 
-pdf.addImage(img,'PNG',10,10,width,height);
+for(let i=1;i<=5;i++){
 
-pdf.save("Mock_Test_Result.pdf");
+let q=questions[i];
 
-});
+doc.text("Q"+i+": "+q.q,20,y); y+=8;
+
+doc.text("A: "+q.A,25,y); y+=6;
+doc.text("B: "+q.B,25,y); y+=6;
+doc.text("C: "+q.C,25,y); y+=6;
+doc.text("D: "+q.D,25,y); y+=8;
+
+doc.text("Your Answer: "+(userAnswers[i] || "Not Attempted"),25,y); y+=6;
+
+doc.text("Correct Answer: "+answers[i],25,y); y+=10;
+
+if(y>270){
+doc.addPage();
+y=20;
+}
+
+}
+
+doc.save("Mock_Test_Result.pdf");
 
 }
 
@@ -206,28 +296,9 @@ Reasoning : 2 Questions
 
 <hr>
 
-<p style="text-align:left">
-
-Instructions:<br><br>
-
-1. All questions are compulsory.<br>
-2. Each question carries one mark.<br>
-3. There is no negative marking.<br>
-4. Choose the most appropriate answer.<br>
-5. Use of calculator or electronic device is not permitted.<br>
-6. Each question has four options (A, B, C, D).<br>
-7. Use the provided OMR sheet to mark your answers carefully.
-
-</p>
-
-<p><i>Prepared for Practice Purpose Only</i></p>
-
-<br>
-
 <button onclick="nextCover()">Next</button>
 
 </div>
-
 
 <div class="container" id="formBox" style="display:none">
 
@@ -243,7 +314,6 @@ Phone Number<br>
 
 </div>
 
-
 <div class="container center" id="countBox" style="display:none">
 
 <h2>Test will start in</h2>
@@ -251,7 +321,6 @@ Phone Number<br>
 <div class="timer" id="count">5</div>
 
 </div>
-
 
 <div class="container question" id="q1">
 
@@ -266,7 +335,6 @@ Phone Number<br>
 
 </div>
 
-
 <div class="container question" id="q2">
 
 <p>2. 2 + 2 = ?</p>
@@ -279,7 +347,6 @@ Phone Number<br>
 <button onclick="next()">Next</button>
 
 </div>
-
 
 <div class="container question" id="q3">
 
@@ -294,7 +361,6 @@ Phone Number<br>
 
 </div>
 
-
 <div class="container question" id="q4">
 
 <p>4. भारत का राष्ट्रीय ध्वज किसने डिजाइन किया?</p>
@@ -307,7 +373,6 @@ Phone Number<br>
 <button onclick="next()">Next</button>
 
 </div>
-
 
 <div class="container question" id="q5">
 
@@ -322,10 +387,13 @@ Phone Number<br>
 
 </div>
 
-
 <div class="container" id="resultBox" style="display:none">
 
 <h2 id="result"></h2>
+
+<div id="reviewBox"></div>
+
+<br>
 
 <button onclick="downloadPDF()">Download Result PDF</button>
 
