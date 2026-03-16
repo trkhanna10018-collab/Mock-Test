@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="UTF-8">
 <title>HP JOA IT Mock Tests</title>
 
@@ -25,8 +23,9 @@ margin-top:40px;
 padding:30px;
 border-radius:10px;
 box-shadow:0 0 12px rgba(0,0,0,0.2);
-text-align:center;
 }
+
+.center{text-align:center}
 
 button{
 padding:12px 25px;
@@ -43,10 +42,28 @@ button:hover{background:#0056b3}
 
 .question{display:none}
 
+.options{
+text-align:left;
+margin-top:15px;
+}
+
+.options label{
+display:block;
+margin:8px 0;
+}
+
 .review{
 background:#f2f2f2;
 padding:10px;
 margin-top:15px;
+text-align:left;
+}
+
+.timer{
+font-size:25px;
+font-weight:bold;
+color:red;
+text-align:center;
 }
 
 </style>
@@ -59,13 +76,14 @@ let current=1
 let score=0
 let testNumber=0
 
+let userAnswers={}
+
 let questions={
 1:[
 {q:"Which memory stores BIOS?",A:"RAM",B:"ROM",C:"Cache",D:"Register",ans:"B"},
 {q:"Which device is optical storage?",A:"SSD",B:"DVD",C:"Flash Drive",D:"Hard Disk",ans:"B"},
 {q:"Which OS component manages hardware communication?",A:"Kernel",B:"Shell",C:"Compiler",D:"Interpreter",ans:"A"}
 ],
-
 2:[
 {q:"What is time complexity of binary search?",A:"O(n)",B:"O(log n)",C:"O(n2)",D:"O(1)",ans:"B"},
 {q:"Which layer handles routing?",A:"Network",B:"Transport",C:"Session",D:"Data Link",ans:"A"},
@@ -77,8 +95,6 @@ for(let i=3;i<=15;i++){
 questions[i]=questions[1]
 }
 
-let userAnswers={}
-
 function openTests(){
 
 document.getElementById("home").style.display="none"
@@ -89,6 +105,9 @@ document.getElementById("testList").style.display="block"
 function startTest(num){
 
 testNumber=num
+current=1
+score=0
+userAnswers={}
 
 document.getElementById("testList").style.display="none"
 document.getElementById("formBox").style.display="block"
@@ -100,10 +119,34 @@ function begin(){
 name=document.getElementById("name").value
 phone=document.getElementById("phone").value
 
+if(name=="" || phone==""){
+alert("Enter name and phone")
+return
+}
+
 document.getElementById("formBox").style.display="none"
-document.getElementById("q1").style.display="block"
+document.getElementById("countBox").style.display="block"
+
+let t=5
+
+let timer=setInterval(function(){
+
+document.getElementById("count").innerHTML=t
+
+t--
+
+if(t<0){
+
+clearInterval(timer)
+
+document.getElementById("countBox").style.display="none"
+document.getElementById("qBox").style.display="block"
 
 loadQuestion()
+
+}
+
+},1000)
 
 }
 
@@ -117,6 +160,8 @@ document.getElementById("optA").innerHTML=q.A
 document.getElementById("optB").innerHTML=q.B
 document.getElementById("optC").innerHTML=q.C
 document.getElementById("optD").innerHTML=q.D
+
+document.querySelectorAll('input[name="opt"]').forEach(r=>r.checked=false)
 
 }
 
@@ -139,7 +184,6 @@ current++
 if(current<=3){
 
 loadQuestion()
-document.querySelectorAll('input[name="opt"]').forEach(r=>r.checked=false)
 
 }else{
 
@@ -151,7 +195,7 @@ showResult()
 
 function showResult(){
 
-document.getElementById("q1").style.display="none"
+document.getElementById("qBox").style.display="none"
 document.getElementById("resultBox").style.display="block"
 
 document.getElementById("score").innerHTML="Score : "+score+"/3"
@@ -165,15 +209,15 @@ let q=questions[testNumber][i-1]
 review+=`
 <div class="review">
 
-<b>Q${i}: ${q.q}</b><br>
+<b>Q${i}: ${q.q}</b><br><br>
 
 A: ${q.A}<br>
 B: ${q.B}<br>
 C: ${q.C}<br>
 D: ${q.D}<br><br>
 
-Your Answer : ${userAnswers[i]||"Not Attempted"}<br>
-Correct Answer : ${q.ans}
+<b>Your Answer:</b> ${userAnswers[i] || "Not Attempted"}<br>
+<b>Correct Answer:</b> ${q.ans}
 
 </div>
 `
@@ -187,14 +231,40 @@ document.getElementById("review").innerHTML=review
 function downloadPDF(){
 
 const { jsPDF } = window.jspdf
+
 let doc=new jsPDF()
 
-doc.text("Mock Test Result",20,20)
-doc.text("Name : "+name,20,30)
-doc.text("Phone : "+phone,20,40)
-doc.text("Score : "+score+"/3",20,50)
+let y=20
 
-doc.save("result.pdf")
+doc.text("Mock Test Result",20,y); y+=10
+
+doc.text("Name : "+name,20,y); y+=8
+doc.text("Phone : "+phone,20,y); y+=8
+
+doc.text("Score : "+score+"/3",20,y); y+=12
+
+for(let i=1;i<=3;i++){
+
+let q=questions[testNumber][i-1]
+
+doc.text("Q"+i+": "+q.q,20,y); y+=8
+
+doc.text("A: "+q.A,25,y); y+=6
+doc.text("B: "+q.B,25,y); y+=6
+doc.text("C: "+q.C,25,y); y+=6
+doc.text("D: "+q.D,25,y); y+=8
+
+doc.text("Your Answer: "+(userAnswers[i] || "Not Attempted"),25,y); y+=6
+doc.text("Correct Answer: "+q.ans,25,y); y+=10
+
+if(y>270){
+doc.addPage()
+y=20
+}
+
+}
+
+doc.save("Mock_Test_Result.pdf")
 
 }
 
@@ -204,7 +274,7 @@ doc.save("result.pdf")
 
 <body>
 
-<div class="container" id="home">
+<div class="container center" id="home">
 
 <h1>Himachal Pradesh</h1>
 <h2>JOA (IT) 2026 Preparation Portal</h2>
@@ -215,16 +285,14 @@ doc.save("result.pdf")
 
 </div>
 
-<div class="container" id="testList" style="display:none">
+<div class="container center" id="testList" style="display:none">
 
 <h2>Select Mock Test</h2>
 
 <script>
-
 for(let i=1;i<=15;i++){
 document.write(`<button onclick="startTest(${i})">Mock Test ${i}</button>`)
 }
-
 </script>
 
 </div>
@@ -243,14 +311,28 @@ Phone<br>
 
 </div>
 
-<div class="container question" id="q1">
+<div class="container center" id="countBox" style="display:none">
+
+<h2>Test will start in</h2>
+
+<div class="timer" id="count">5</div>
+
+</div>
+
+<div class="container question" id="qBox">
 
 <p id="qText"></p>
 
-<input type="radio" name="opt" value="A"> <span id="optA"></span><br>
-<input type="radio" name="opt" value="B"> <span id="optB"></span><br>
-<input type="radio" name="opt" value="C"> <span id="optC"></span><br>
-<input type="radio" name="opt" value="D"> <span id="optD"></span><br><br>
+<div class="options">
+
+<label><input type="radio" name="opt" value="A"> A. <span id="optA"></span></label>
+<label><input type="radio" name="opt" value="B"> B. <span id="optB"></span></label>
+<label><input type="radio" name="opt" value="C"> C. <span id="optC"></span></label>
+<label><input type="radio" name="opt" value="D"> D. <span id="optD"></span></label>
+
+</div>
+
+<br>
 
 <button onclick="next()">Next</button>
 
@@ -269,5 +351,4 @@ Phone<br>
 </div>
 
 </body>
-
 </html>
