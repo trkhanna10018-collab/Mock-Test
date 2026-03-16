@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>HP JOA IT Mock Tests</title>
+
+<!-- =========================
+PDF Library (PDF बनाने के लिए)
+========================= -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+
 <style>
+
+/* =========================
+WEBSITE DESIGN
+========================= */
 
 body{
 font-family:Arial;
@@ -38,9 +50,17 @@ border-radius:5px;
 cursor:pointer;
 }
 
-button:hover{background:#0056b3}
+button:hover{
+background:#0056b3
+}
 
-.question{display:none}
+.question{
+display:none
+}
+
+/* =========================
+OPTIONS ALIGNMENT
+========================= */
 
 .options{
 text-align:left;
@@ -51,6 +71,10 @@ margin-top:15px;
 display:block;
 margin:8px 0;
 }
+
+/* =========================
+ANSWER REVIEW DESIGN
+========================= */
 
 .review{
 background:#f2f2f2;
@@ -68,7 +92,12 @@ text-align:center;
 
 </style>
 
+
 <script>
+
+/* =========================
+GLOBAL VARIABLES
+========================= */
 
 let name=""
 let phone=""
@@ -78,22 +107,89 @@ let testNumber=0
 
 let userAnswers={}
 
+
+/* =========================
+QUESTIONS DATABASE
+यहीं पर आप questions बदलेंगे
+========================= */
+
 let questions={
+
 1:[
-{q:"Which memory stores BIOS?",A:"RAM",B:"ROM",C:"Cache",D:"Register",ans:"B"},
-{q:"Which device is optical storage?",A:"SSD",B:"DVD",C:"Flash Drive",D:"Hard Disk",ans:"B"},
-{q:"Which OS component manages hardware communication?",A:"Kernel",B:"Shell",C:"Compiler",D:"Interpreter",ans:"A"}
-],
-2:[
-{q:"What is time complexity of binary search?",A:"O(n)",B:"O(log n)",C:"O(n2)",D:"O(1)",ans:"B"},
-{q:"Which layer handles routing?",A:"Network",B:"Transport",C:"Session",D:"Data Link",ans:"A"},
-{q:"Which protocol sends email?",A:"HTTP",B:"FTP",C:"SMTP",D:"SNMP",ans:"C"}
-]
+{
+q:"Which memory stores BIOS?",
+A:"RAM",
+B:"ROM",
+C:"Cache",
+D:"Register",
+ans:"B"
+},
+
+{
+q:"Which device is optical storage?",
+A:"SSD",
+B:"DVD",
+C:"Flash Drive",
+D:"Hard Disk",
+ans:"B"
+},
+
+{
+q:"Which OS component manages hardware communication?",
+A:"Kernel",
+B:"Shell",
+C:"Compiler",
+D:"Interpreter",
+ans:"A"
 }
+],
+
+2:[
+{
+q:"What is time complexity of binary search?",
+A:"O(n)",
+B:"O(log n)",
+C:"O(n2)",
+D:"O(1)",
+ans:"B"
+},
+
+{
+q:"Which layer handles routing?",
+A:"Network",
+B:"Transport",
+C:"Session",
+D:"Data Link",
+ans:"A"
+},
+
+{
+q:"Which protocol sends email?",
+A:"HTTP",
+B:"FTP",
+C:"SMTP",
+D:"SNMP",
+ans:"C"
+}
+]
+
+}
+
+
+/* =========================
+MOCK TEST AUTO DUPLICATION
+(3 से 15 तक same questions)
+========================= */
 
 for(let i=3;i<=15;i++){
 questions[i]=questions[1]
 }
+
+
+
+/* =========================
+HOME PAGE से MOCK LIST
+========================= */
 
 function openTests(){
 
@@ -101,6 +197,12 @@ document.getElementById("home").style.display="none"
 document.getElementById("testList").style.display="block"
 
 }
+
+
+
+/* =========================
+MOCK TEST START
+========================= */
 
 function startTest(num){
 
@@ -113,6 +215,12 @@ document.getElementById("testList").style.display="none"
 document.getElementById("formBox").style.display="block"
 
 }
+
+
+
+/* =========================
+NAME PHONE FORM
+========================= */
 
 function begin(){
 
@@ -150,6 +258,12 @@ loadQuestion()
 
 }
 
+
+
+/* =========================
+QUESTION LOAD FUNCTION
+========================= */
+
 function loadQuestion(){
 
 let q=questions[testNumber][current-1]
@@ -164,6 +278,12 @@ document.getElementById("optD").innerHTML=q.D
 document.querySelectorAll('input[name="opt"]').forEach(r=>r.checked=false)
 
 }
+
+
+
+/* =========================
+NEXT QUESTION
+========================= */
 
 function next(){
 
@@ -193,6 +313,12 @@ showResult()
 
 }
 
+
+
+/* =========================
+RESULT + REVIEW
+========================= */
+
 function showResult(){
 
 document.getElementById("qBox").style.display="none"
@@ -207,6 +333,7 @@ for(let i=1;i<=3;i++){
 let q=questions[testNumber][i-1]
 
 review+=`
+
 <div class="review">
 
 <b>Q${i}: ${q.q}</b><br><br>
@@ -227,6 +354,12 @@ D: ${q.D}<br><br>
 document.getElementById("review").innerHTML=review
 
 }
+
+
+
+/* =========================
+PDF GENERATION
+========================= */
 
 function downloadPDF(){
 
@@ -272,7 +405,13 @@ doc.save("Mock_Test_Result.pdf")
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+HOME PAGE
+========================= -->
 
 <div class="container center" id="home">
 
@@ -285,17 +424,31 @@ doc.save("Mock_Test_Result.pdf")
 
 </div>
 
+
+
+<!-- =========================
+MOCK TEST LIST
+========================= -->
+
 <div class="container center" id="testList" style="display:none">
 
 <h2>Select Mock Test</h2>
 
 <script>
+
 for(let i=1;i<=15;i++){
 document.write(`<button onclick="startTest(${i})">Mock Test ${i}</button>`)
 }
+
 </script>
 
 </div>
+
+
+
+<!-- =========================
+CANDIDATE DETAILS
+========================= -->
 
 <div class="container" id="formBox" style="display:none">
 
@@ -311,6 +464,12 @@ Phone<br>
 
 </div>
 
+
+
+<!-- =========================
+COUNTDOWN
+========================= -->
+
 <div class="container center" id="countBox" style="display:none">
 
 <h2>Test will start in</h2>
@@ -318,6 +477,12 @@ Phone<br>
 <div class="timer" id="count">5</div>
 
 </div>
+
+
+
+<!-- =========================
+QUESTION SCREEN
+========================= -->
 
 <div class="container question" id="qBox">
 
@@ -338,6 +503,12 @@ Phone<br>
 
 </div>
 
+
+
+<!-- =========================
+RESULT SCREEN
+========================= -->
+
 <div class="container" id="resultBox" style="display:none">
 
 <h2 id="score"></h2>
@@ -349,6 +520,7 @@ Phone<br>
 <button onclick="downloadPDF()">Download PDF</button>
 
 </div>
+
 
 </body>
 </html>
