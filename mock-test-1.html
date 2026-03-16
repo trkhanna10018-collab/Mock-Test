@@ -451,16 +451,32 @@ let img=canvas.toDataURL("image/png")
 
 let pdf=new jsPDF("p","mm","a4")
 
-let width=190
+let imgWidth=190
+let pageHeight=297
+let imgHeight=canvas.height*imgWidth/canvas.width
 
-let height=canvas.height*width/canvas.width
+let heightLeft=imgHeight
+let position=0
 
-pdf.addImage(img,"PNG",10,10,width,height)
+pdf.addImage(img,"PNG",10,position+10,imgWidth,imgHeight)
+
+heightLeft-=pageHeight
+
+while(heightLeft>0){
+
+position=heightLeft-imgHeight
+
+pdf.addPage()
+
+pdf.addImage(img,"PNG",10,position+10,imgWidth,imgHeight)
+
+heightLeft-=pageHeight
+
+}
 
 pdf.save("Mock_Test_Result.pdf")
 
 }
-
 </script>
 
 </body>
