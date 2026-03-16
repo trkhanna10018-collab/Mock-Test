@@ -471,20 +471,25 @@ pdf.addPage()
 y=20
 }
 
-pdf.text("Q"+(i+1)+": "+q.q,x,y)
-y+=line
+let qText = pdf.splitTextToSize("Q"+(i+1)+": "+q.q,180)
+pdf.text(qText,x,y)
+y += qText.length*line
 
-pdf.text("A. "+q.A,x+5,y)
-y+=line
+let aText = pdf.splitTextToSize("A. "+q.A,170)
+pdf.text(aText,x+5,y)
+y += aText.length*line
 
-pdf.text("B. "+q.B,x+5,y)
-y+=line
+let bText = pdf.splitTextToSize("B. "+q.B,170)
+pdf.text(bText,x+5,y)
+y += bText.length*line
 
-pdf.text("C. "+q.C,x+5,y)
-y+=line
+let cText = pdf.splitTextToSize("C. "+q.C,170)
+pdf.text(cText,x+5,y)
+y += cText.length*line
 
-pdf.text("D. "+q.D,x+5,y)
-y+=line
+let dText = pdf.splitTextToSize("D. "+q.D,170)
+pdf.text(dText,x+5,y)
+y += dText.length*line
 
 pdf.text("Your Answer: "+(userAnswers[i]||"Not Attempted"),x+5,y)
 y+=line
