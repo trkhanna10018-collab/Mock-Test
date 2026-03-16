@@ -248,7 +248,7 @@ box.style.display="block"
 
 let html=""
 
-html+="<h2>Score : "+score+" / "+questions.length+"</h2>"
+html+="<h2 style='text-align:center'>Score : "+score+" / "+questions.length+"</h2>"
 
 for(let i=0;i<questions.length;i++){
 
@@ -256,7 +256,7 @@ let q=questions[i]
 
 html+="<hr>"
 
-html+="<b>Q"+(i+1)+". "+q.q+"</b><br><br>"
+html+="<b>Q"+(i+1)+". "+q.q+"</b><br>"
 
 html+="A. "+q.A+"<br>"
 html+="B. "+q.B+"<br>"
@@ -271,7 +271,7 @@ html+="Correct Answer : "+q.ans+"<br>"
 
 html+="<br><button onclick='downloadPDF()'>Download Result PDF</button>"
 
-box.innerHTML=html
+box.innerHTML="<div style='text-align:left'>"+html+"</div>"
 
 }
 
