@@ -92,7 +92,7 @@ font-size:20px;
 
 <h2>JOA IT CBT Mock Test</h2>
 
-<div class="timer" id="examTimer"></div>
+<div class="timer" id="examTimer" style="display:none"></div>
 
 <div class="container" id="formBox">
 
@@ -1275,6 +1275,7 @@ document.getElementById("formBox").style.display="none"
 document.getElementById("countBox").style.display="block"
 
 let t=5
+document.getElementById("count").innerHTML=t
 
 let timer=setInterval(function(){
 
