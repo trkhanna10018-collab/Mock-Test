@@ -92,14 +92,14 @@ font-size:20px;
 
 <h2>JOA IT CBT Mock Test</h2>
 
-<div class="timer" id="timer"></div>
+<div class="timer" id="examTimer"></div>
 
 <div class="container" id="formBox">
 
 <h3>Enter Details</h3>
 
-<input id="name" placeholder="Enter Name"><br><br>
-<input id="phone" placeholder="Enter Phone"><br><br>
+<input id="Name" placeholder="Enter Name"><br><br>
+<input id="Phone" placeholder="Enter Phone"><br><br>
 
 <button onclick="beginTest()">Start Test</button>
 
@@ -1255,8 +1255,8 @@ showResult()
 
 function beginTest(){
 
-studentName=document.getElementById("Enter Name").value
-studentPhone=document.getElementById("Enter Phone").value
+studentName=document.getElementById("Name").value
+studentPhone=document.getElementById("Phone").value
 
 if(studentName=="" || studentPhone==""){
 
