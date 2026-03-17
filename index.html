@@ -1363,21 +1363,52 @@ box.innerHTML="<div style='text-align:left'>"+html+"</div>"
 async function downloadPDF(){
 
 const { jsPDF } = window.jspdf
+let doc = new jsPDF()
 
-let element=document.getElementById("resultBox")
+let y = 20
 
-let canvas=await html2canvas(element,{scale:2})
+doc.text("JOA IT MOCK TEST RESULT",20,y)
+y+=10
 
-let imgData=canvas.toDataURL("image/jpeg",0.6)
+doc.text("Name : "+name,20,y)
+y+=8
 
-let pdf=new jsPDF("p","mm","a4")
+doc.text("Phone : "+phone,20,y)
+y+=8
 
-let imgWidth=190
-let imgHeight=canvas.height*imgWidth/canvas.width
+doc.text("Score : "+score+" / "+questions.length,20,y)
 
-pdf.addImage(imgData,"JPEG",10,10,imgWidth,imgHeight)
+y+=10
 
-pdf.save("Mock_Test_Result.pdf")
+for(let i=0;i<questions.length;i++){
+
+let q = questions[i]
+
+let qText = doc.splitTextToSize("Q"+(i+1)+": "+q.en+" "+q.hi,170)
+
+if(y>270){
+doc.addPage()
+y=20
+}
+
+doc.text(qText,20,y)
+y+=qText.length*7
+
+doc.text("A. "+q.A,25,y); y+=6
+doc.text("B. "+q.B,25,y); y+=6
+doc.text("C. "+q.C,25,y); y+=6
+doc.text("D. "+q.D,25,y); y+=6
+
+doc.text("Your Answer : "+(userAnswers[i+1] || "Not Attempted"),25,y)
+y+=6
+
+doc.text("Correct Answer : "+q.ans,25,y)
+
+y+=10
+
+}
+
+doc.save("Mock_Test_Result.pdf")
 
 }
 
