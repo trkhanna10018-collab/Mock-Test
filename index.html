@@ -1506,43 +1506,5 @@ Phone<br>
 <button onclick="downloadPDF()">Download Result PDF</button>
 
 </div>
-</div>
-
-<script>
-
-function login(){
-
-let u=document.getElementById("username").value
-let p=document.getElementById("password").value
-
-if(
-(u=="user1" || u=="user2" || u=="user3")
-&& p=="1234"
-){
-
-localStorage.setItem("mockLogin","yes")
-
-document.getElementById("loginBox").style.display="none"
-document.getElementById("home").style.display="block"
-
-}else{
-
-alert("Wrong Username or Password")
-
-}
-
-}
-
-/* already logged */
-
-if(localStorage.getItem("mockLogin")=="yes"){
-
-document.getElementById("loginBox").style.display="none"
-document.getElementById("home").style.display="block"
-
-}
-
-</script>
-
 </body>
 </html>
