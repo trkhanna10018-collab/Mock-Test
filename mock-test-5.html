@@ -1398,13 +1398,174 @@ html+="<hr>"
 
 html+="<b>Q"+(i+1)+". "+q.en+"</b><br>"
 html+=q.hi+"<br><br>"
+let current=0
+let score=0
+let userAnswers={}
+
+let studentName=""
+let studentPhone=""
+
+let examTime=5400
+let examTimer
+
+/* START TIMER */
+
+function startExamTimer(){
+
+examTimer=setInterval(function(){
+
+let min=Math.floor(examTime/60)
+let sec=examTime%60
+
+document.getElementById("examTimer").innerHTML=
+"<span>⏱ Time Left : "+min+":"+(sec<10?"0":"")+sec+"</span>"
+
+examTime--
+
+if(examTime<0){
+
+clearInterval(examTimer)
+
+alert("Time Over! Test Submitted")
+
+showResult()
+
+}
+
+},1000)
+
+}
+
+/* BEGIN TEST */
+
+function beginTest(){
+
+studentName=document.getElementById("Name").value
+studentPhone=document.getElementById("Phone").value
+
+if(studentName=="" || studentPhone==""){
+alert("Enter name and phone")
+return
+}
+
+document.getElementById("formBox").style.display="none"
+document.getElementById("countBox").style.display="block"
+
+let t=5
+document.getElementById("count").innerHTML=t
+
+let timer=setInterval(function(){
+
+document.getElementById("count").innerHTML=t
+
+t--
+
+if(t<0){
+
+clearInterval(timer)
+
+document.getElementById("countBox").style.display="none"
+
+document.getElementById("questionBox").style.display="block"
+document.getElementById("examTimer").style.display="block"
+
+startExamTimer()
+
+showQuestion()
+
+}
+
+},1000)
+
+}
+
+/* SHOW QUESTION */
+
+function showQuestion(){
+
+let q=questions[current]
+
+let html=""
+
+html+="<h3>Q"+(current+1)+". "+q.en+"</h3>"
+html+="<p>"+q.hi+"</p>"
+
+html+='<label class="option"><input type="radio" name="ans" value="A"> A. '+q.A+'</label>'
+html+='<label class="option"><input type="radio" name="ans" value="B"> B. '+q.B+'</label>'
+html+='<label class="option"><input type="radio" name="ans" value="C"> C. '+q.C+'</label>'
+html+='<label class="option"><input type="radio" name="ans" value="D"> D. '+q.D+'</label>'
+
+html+="<br><button onclick='nextQuestion()'>Next</button>"
+
+document.getElementById("questionBox").innerHTML=html
+
+}
+
+/* NEXT QUESTION */
+
+function nextQuestion(){
+
+let selected=document.querySelector('input[name="ans"]:checked')
+
+if(selected){
+
+userAnswers[current]=selected.value
+
+if(selected.value==questions[current].ans){
+
+score++
+
+}
+
+}
+
+current++
+
+if(current<questions.length){
+
+showQuestion()
+
+}else{
+
+showResult()
+
+}
+
+}
+
+function showResult(){
+
+clearInterval(examTimer)
+
+document.getElementById("questionBox").style.display="none"
+
+let box=document.getElementById("resultBox")
+
+box.style.display="block"
+
+let html=""
+
+html+="<h2 style='text-align:center'>JOA IT MOCK TEST RESULT</h2>"
+
+html+="<b>Name :</b> "+studentName+"<br>"
+html+="<b>Phone :</b> "+studentPhone+"<br>"
+html+="<b>Score :</b> "+score+" / "+questions.length+"<br><br>"
+
+for(let i=0;i<questions.length;i++){
+
+let q=questions[i]
+
+html+="<hr>"
+
+html+="<b>Q"+(i+1)+". "+q.en+"</b><br>"
+html+=q.hi+"<br><br>"
 
 html+="A. "+q.A+"<br>"
 html+="B. "+q.B+"<br>"
 html+="C. "+q.C+"<br>"
 html+="D. "+q.D+"<br><br>"
 
-html+="Your Answer : "+(userAnswers[i+1] || "Not Attempted")+"<br>"
+html+="Your Answer : "+(userAnswers[i] || "Not Attempted")+"<br>"
 
 html+="Correct Answer : "+q.ans+"<br>"
 
@@ -1416,8 +1577,6 @@ box.innerHTML="<div style='text-align:left'>"+html+"</div>"
 
 }
 
-/* PDF */
-
 async function downloadPDF(){
 
 const { jsPDF } = window.jspdf
@@ -1426,7 +1585,7 @@ let element=document.getElementById("resultBox")
 
 let canvas=await html2canvas(element,{scale:2})
 
-let imgData=canvas.toDataURL("image/jpeg",0.5)
+let imgData=canvas.toDataURL("image/jpeg",0.6)
 
 let pdf=new jsPDF("p","mm","a4")
 
@@ -1457,81 +1616,7 @@ pdf.save("Mock_Test_Result.pdf")
 
 }
 </script>
-</head>
 
-<body>
-
-<div class="container" id="home">
-<h2>HP JOA (IT) MOCK TEST PORTAL</h2>
-
-<br>
-
-<button onclick="openTests()">JOA (IT) 2026 MOCK TEST</button>
-
-</div>
-
-
-<div class="container" id="testList" style="display:none">
-
-<h3>Select Mock Test</h3>
-
-<a href="mock-test-4.html">
-<button>Mock Test 03</button>
-</a>
-
-<a href="mock-test-3.html">
-<button>Mock Test 04</button>
-</a>
-
-<a href="mock-test-2.html">
-<button>Mock Test 05</button>
-</a>
-
-<a href="mock-test-1.html">
-<button>Mock Test 06</button>
-</a>
-
-<button onclick="startTest()">Mock Test 07</button>
-
-
-</div>
-
-
-<div class="container" id="formBox" style="display:none">
-
-<h3>Candidate Details</h3>
-
-Name<br>
-<input type="text" id="Name"><br><br>
-
-Phone<br>
-<input type="text" id="Phone"><br><br>
-
-<button onclick="beginTest()">Start Test</button>
-
-</div>
-
-
-<div class="container center" id="countBox" style="display:none">
-
-<h3>Test will start in</h3>
-
-<div class="timer" id="count">5</div>
-
-</div>
-
-<div class="timer" id="examTimer"></div>
-<div class="container" id="questionBox" style="display:none"></div>
-
-
-<div class="container center" id="resultBox" style="display:none">
-
-<h2 id="score"></h2>
-
-<br>
-
-<button onclick="downloadPDF()">Download Result PDF</button>
-
-</div>
 </body>
+
 </html>
