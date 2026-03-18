@@ -11,50 +11,52 @@ font-family:Arial, sans-serif;
 background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
-/* WRAPPER */
+/* WRAPPER (ऊपर shift किया) */
 .wrapper{
 width:100%;
 min-height:100vh;
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:center;
-padding:20px;
+justify-content:flex-start;   /* 👈 ऊपर लाया */
+padding-top:40px;             /* 👈 spacing */
 }
 
-/* INFO BOX */
+/* INFO BOX (glass effect) */
 .infoBox{
 max-width:750px;
-background:rgba(255,255,255,0.95);
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
 padding:25px;
 border-radius:15px;
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 margin-bottom:25px;
+border:1px solid rgba(255,255,255,0.3);
 }
 
 .infoBox h1{
 font-size:30px;
 margin:5px;
-color:#222;
+color:#1f2937;
 }
 
 .infoBox h2{
 font-size:22px;
 margin:5px;
-color:#333;
+color:#374151;
 }
 
 .infoBox h3{
 font-size:16px;
 margin:10px;
-color:#555;
+color:#6b7280;
 }
 
 .infoBox p{
 font-size:14px;
 margin:10px 0;
-color:#333;
+color:#111827;
 }
 
 .infoBox ul{
@@ -67,19 +69,20 @@ margin-top:10px;
 margin:6px 0;
 }
 
-/* LOGIN BOX */
+/* LOGIN BOX (different color + attractive) */
 .container{
-background:white;
+background:linear-gradient(145deg,#ffffff,#e0e7ff);
 padding:40px;
 border-radius:20px;
 width:350px;
 text-align:center;
-box-shadow:0 20px 40px rgba(0,0,0,0.3);
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+border:2px solid #6366f1;
 }
 
 .container h3{
 margin-bottom:25px;
-color:#333;
+color:#1e293b;
 }
 
 input{
@@ -91,12 +94,13 @@ border:1px solid #ccc;
 outline:none;
 }
 
+/* BUTTON */
 button{
 width:100%;
 padding:12px;
 border:none;
 border-radius:10px;
-background:linear-gradient(45deg,#667eea,#764ba2);
+background:linear-gradient(45deg,#6366f1,#4f46e5);
 color:white;
 font-size:16px;
 cursor:pointer;
@@ -123,7 +127,7 @@ transform:scale(1.05);
 <h3>COMPETITIVE EXAMINATION</h3>
 
 <p><strong>Scope of Syllabus:</strong><br>
-The objective type screening test will consist of 120 multiple-choice questions, each carrying 1 mark. The test is designed to evaluate the candidate’s knowledge and technical understanding.
+The objective type screening test will consist of 120 multiple-choice questions, each carrying 1 mark.
 </p>
 
 <p><strong>Syllabus:</strong></p>
