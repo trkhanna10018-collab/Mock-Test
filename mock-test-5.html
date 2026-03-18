@@ -128,1106 +128,1106 @@ margin-top:10px;
 <script>
 
 let questions=[
-
 {
 id:1,
-en:"Which part of an IP address identifies the network?",
-hi:"IP address का कौन-सा भाग network को पहचानता है?",
-A:"Host ID",
-B:"Network ID",
-C:"Port Number",
-D:"Protocol ID",
+en:"Which aggregate function calculates the average value?",
+hi:"कौन-सा aggregate function average value निकालता है?",
+A:"SUM()",
+B:"AVG()",
+C:"COUNT()",
+D:"MAX()",
 ans:"B"
 },
 
 {
 id:2,
-en:"IPv4 addresses are written using:",
-hi:"IPv4 address किस रूप में लिखा जाता है?",
-A:"Binary notation",
-B:"Hexadecimal notation",
-C:"Dotted decimal notation",
-D:"Octal notation",
-ans:"C"
-},
-
-{
-id:3,
-en:"How many bits are there in an IPv4 address?",
-hi:"IPv4 address में कितने bits होते हैं?",
-A:"16",
-B:"32",
-C:"64",
-D:"128",
+en:"Which SQL clause is used with aggregate functions to group rows?",
+hi:"Aggregate functions के साथ rows को group करने के लिए कौन-सा SQL clause उपयोग होता है?",
+A:"ORDER BY",
+B:"GROUP BY",
+C:"WHERE",
+D:"HAVING",
 ans:"B"
 },
 
 {
-id:4,
-en:"How many bits are there in an IPv6 address?",
-hi:"IPv6 address में कितने bits होते हैं?",
-A:"32",
-B:"64",
-C:"128",
-D:"256",
+id:3,
+en:"Which SQL join returns only matching rows from both tables?",
+hi:"कौन-सा SQL join केवल matching rows लौटाता है?",
+A:"LEFT JOIN",
+B:"RIGHT JOIN",
+C:"INNER JOIN",
+D:"FULL JOIN",
 ans:"C"
 },
 
 {
+id:4,
+en:"Which SQL join returns all records from the left table and matched records from the right table?",
+hi:"कौन-सा join left table के सभी records और right table के matching records देता है?",
+A:"INNER JOIN",
+B:"LEFT JOIN",
+C:"RIGHT JOIN",
+D:"CROSS JOIN",
+ans:"B"
+},
+
+{
 id:5,
-en:"Which routing protocol uses hop count as its metric?",
-hi:"कौन-सा routing protocol hop count का उपयोग करता है?",
-A:"OSPF",
-B:"RIP",
-C:"BGP",
-D:"EIGRP",
+en:"Which join returns all records from both tables regardless of matching?",
+hi:"कौन-सा join दोनों tables के सभी records देता है चाहे match हो या न हो?",
+A:"INNER JOIN",
+B:"FULL OUTER JOIN",
+C:"LEFT JOIN",
+D:"RIGHT JOIN",
 ans:"B"
 },
 
 {
 id:6,
-en:"The maximum hop count allowed in RIP is:",
-hi:"RIP में अधिकतम hop count कितना होता है?",
-A:"10",
-B:"15",
-C:"20",
-D:"30",
+en:"Which relational algebra operation selects rows that satisfy a given condition?",
+hi:"कौन-सा relational algebra operation condition के अनुसार rows select करता है?",
+A:"Projection",
+B:"Selection",
+C:"Join",
+D:"Union",
 ans:"B"
 },
 
 {
 id:7,
-en:"Which routing protocol uses the shortest path first algorithm?",
-hi:"कौन-सा routing protocol shortest path first algorithm का उपयोग करता है?",
-A:"RIP",
-B:"OSPF",
-C:"BGP",
-D:"IGRP",
+en:"Which relational algebra operation selects specific columns from a table?",
+hi:"कौन-सा operation specific columns select करता है?",
+A:"Selection",
+B:"Projection",
+C:"Join",
+D:"Division",
 ans:"B"
 },
 
 {
 id:8,
-en:"The IPv4 header contains how many fields approximately?",
-hi:"IPv4 header में लगभग कितने fields होते हैं?",
-A:"8",
-B:"10",
-C:"12",
-D:"14",
-ans:"C"
+en:"Which relational algebra operation combines rows from two relations?",
+hi:"कौन-सा operation दो relations की rows को combine करता है?",
+A:"Union",
+B:"Join",
+C:"Selection",
+D:"Projection",
+ans:"B"
 },
 
 {
 id:9,
-en:"Which field in IPv4 header specifies how long a packet can remain in the network?",
-hi:"IPv4 header का कौन-सा field packet के network में रहने का समय बताता है?",
-A:"TTL",
-B:"Protocol",
-C:"Header Length",
-D:"Version",
-ans:"A"
+en:"Which SQL clause is used to sort the result of a query?",
+hi:"Query के result को sort करने के लिए कौन-सा clause उपयोग होता है?",
+A:"GROUP BY",
+B:"ORDER BY",
+C:"SORT BY",
+D:"ARRANGE BY",
+ans:"B"
 },
 
 {
 id:10,
-en:"The IPv4 header size without options is:",
-hi:"IPv4 header का size (without options) कितना होता है?",
-A:"20 bytes",
-B:"24 bytes",
-C:"32 bytes",
-D:"40 bytes",
-ans:"A"
+en:"Which key uniquely identifies each record in a relation and is chosen from candidate keys?",
+hi:"कौन-सी key हर record को uniquely identify करती है और candidate keys में से चुनी जाती है?",
+A:"Super Key",
+B:"Primary Key",
+C:"Foreign Key",
+D:"Alternate Key",
+ans:"B"
 },
 
 {
 id:11,
-en:"Which IPv4 class provides the largest number of host addresses?",
-hi:"कौन-सा IPv4 class सबसे अधिक host address देता है?",
-A:"Class A",
-B:"Class B",
-C:"Class C",
-D:"Class D",
+en:"A super key is:",
+hi:"Super key क्या होती है?",
+A:"A key that uniquely identifies a tuple in a relation",
+B:"A key used for indexing only",
+C:"A key used for sorting data",
+D:"A key used only in foreign tables",
 ans:"A"
 },
 
 {
 id:12,
-en:"Which IPv4 class is reserved for multicast?",
-hi:"IPv4 का कौन-सा class multicast के लिए होता है?",
-A:"Class A",
-B:"Class C",
-C:"Class D",
-D:"Class E",
-ans:"C"
-},
-
-{
-id:13,
-en:"The loopback address in IPv4 is:",
-hi:"IPv4 में loopback address क्या है?",
-A:"127.0.0.1",
-B:"192.168.1.1",
-C:"255.255.255.0",
-D:"10.0.0.1",
+en:"A candidate key is:",
+hi:"Candidate key क्या होती है?",
+A:"A minimal super key",
+B:"A key with duplicate values",
+C:"A key used only for sorting",
+D:"A key with NULL values",
 ans:"A"
 },
 
 {
-id:14,
-en:"Which IPv4 address range is reserved for private networks?",
-hi:"कौन-सा IPv4 address range private network के लिए reserved है?",
-A:"8.0.0.0 – 8.255.255.255",
-B:"192.168.0.0 – 192.168.255.255",
-C:"150.0.0.0 – 150.255.255.255",
-D:"200.0.0.0 – 200.255.255.255",
-ans:"B"
-},
-
-{
-id:15,
-en:"Which routing protocol is commonly used between autonomous systems?",
-hi:"Autonomous systems के बीच कौन-सा routing protocol उपयोग होता है?",
-A:"RIP",
-B:"OSPF",
-C:"BGP",
-D:"IGRP",
+id:13,
+en:"Which key is used to link two tables together?",
+hi:"दो tables को जोड़ने के लिए कौन-सी key उपयोग होती है?",
+A:"Primary Key",
+B:"Candidate Key",
+C:"Foreign Key",
+D:"Composite Key",
 ans:"C"
 },
 
 {
+id:14,
+en:"A relation can have how many primary keys?",
+hi:"एक relation में कितनी primary key हो सकती है?",
+A:"One",
+B:"Two",
+C:"Many",
+D:"None",
+ans:"A"
+},
+
+{
+id:15,
+en:"Which of the following is true about candidate keys?",
+hi:"Candidate keys के बारे में सही कथन कौन-सा है?",
+A:"Only one candidate key can exist",
+B:"A table may have multiple candidate keys",
+C:"Candidate keys can contain duplicate values",
+D:"Candidate keys must always be numeric",
+ans:"B"
+},
+
+{
 id:16,
-en:"The IPv6 address format is written in:",
-hi:"IPv6 address किस format में लिखा जाता है?",
-A:"Binary",
-B:"Hexadecimal",
-C:"Decimal",
-D:"Octal",
+en:"In DBMS, ACID property ensures reliable transaction processing. What does 'A' stand for?",
+hi:"DBMS में ACID property में 'A' का क्या अर्थ है?",
+A:"Accuracy",
+B:"Atomicity",
+C:"Accessibility",
+D:"Availability",
 ans:"B"
 },
 
 {
 id:17,
-en:"Which IPv6 address type is used to communicate with a single interface?",
-hi:"IPv6 में single interface से communication के लिए कौन-सा address type उपयोग होता है?",
-A:"Multicast",
-B:"Broadcast",
-C:"Unicast",
-D:"Anycast",
-ans:"C"
+en:"Which ACID property ensures that a transaction changes the database from one valid state to another?",
+hi:"कौन-सी ACID property database को एक valid state से दूसरी valid state में ले जाती है?",
+A:"Consistency",
+B:"Isolation",
+C:"Atomicity",
+D:"Durability",
+ans:"A"
 },
 
 {
 id:18,
-en:"IPv6 does not support which addressing type used in IPv4?",
-hi:"IPv6 में IPv4 का कौन-सा addressing type supported नहीं है?",
-A:"Unicast",
-B:"Multicast",
-C:"Broadcast",
-D:"Anycast",
+en:"Which type of conflict occurs when one transaction reads a data item and another transaction writes the same item?",
+hi:"जब एक transaction read करे और दूसरा write करे तो कौन-सा conflict होता है?",
+A:"W-W Conflict",
+B:"R-R Conflict",
+C:"R-W Conflict",
+D:"W-R Conflict",
 ans:"C"
 },
 
 {
 id:19,
-en:"Which field identifies the next protocol in the IPv6 header?",
-hi:"IPv6 header में अगला protocol किस field से पहचाना जाता है?",
-A:"Hop Limit",
-B:"Next Header",
-C:"Payload Length",
-D:"Version",
-ans:"B"
+en:"Which conflict occurs when two transactions attempt to write the same data item?",
+hi:"जब दो transactions एक ही data को write करें तो कौन-सा conflict होता है?",
+A:"W-W Conflict",
+B:"R-W Conflict",
+C:"R-R Conflict",
+D:"W-R Conflict",
+ans:"A"
 },
 
 {
 id:20,
-en:"The version field in IPv4 header contains:",
-hi:"IPv4 header का version field क्या दर्शाता है?",
-A:"Protocol type",
-B:"IP version number",
-C:"Packet size",
-D:"Routing type",
+en:"A schedule is conflict serializable if:",
+hi:"Schedule conflict serializable कब होता है?",
+A:"All transactions execute simultaneously",
+B:"It can be converted into a serial schedule by swapping non-conflicting operations",
+C:"All transactions are committed",
+D:"It contains only read operations",
 ans:"B"
-}, 
+},
 
 {
 id:21,
-en:"Which protocol is used to discover the MAC address of a device in a network?",
-hi:"Network में किसी device का MAC address पता करने के लिए कौन-सा protocol उपयोग होता है?",
-A:"ARP",
-B:"DNS",
-C:"FTP",
-D:"SMTP",
-ans:"A"
+en:"Which graph is used to test conflict serializability?",
+hi:"Conflict serializability को test करने के लिए कौन-सा graph उपयोग होता है?",
+A:"Data Flow Graph",
+B:"Precedence Graph",
+C:"Binary Graph",
+D:"Execution Graph",
+ans:"B"
 },
 
 {
 id:22,
-en:"Which protocol is used to translate domain names into IP addresses?",
-hi:"Domain name को IP address में बदलने के लिए कौन-सा protocol उपयोग होता है?",
-A:"DNS",
-B:"ARP",
-C:"ICMP",
-D:"DHCP",
-ans:"A"
+en:"A schedule is recoverable if:",
+hi:"Schedule recoverable कब होता है?",
+A:"Transactions commit before reading data",
+B:"A transaction commits only after the transaction from which it reads has committed",
+C:"Transactions run simultaneously",
+D:"All transactions abort",
+ans:"B"
 },
 
 {
 id:23,
-en:"Which protocol is used to automatically assign IP addresses to devices?",
-hi:"Devices को automatically IP address देने के लिए कौन-सा protocol उपयोग होता है?",
-A:"ARP",
-B:"DHCP",
-C:"FTP",
-D:"SMTP",
+en:"Two Phase Locking (2PL) protocol ensures:",
+hi:"Two Phase Locking (2PL) क्या सुनिश्चित करता है?",
+A:"Deadlock prevention",
+B:"Serializability",
+C:"Parallel execution",
+D:"Faster execution",
 ans:"B"
 },
 
 {
 id:24,
-en:"The subnet mask 255.255.255.0 represents:",
-hi:"Subnet mask 255.255.255.0 क्या दर्शाता है?",
-A:"/16 network",
-B:"/24 network",
-C:"/32 network",
-D:"/8 network",
-ans:"B"
+en:"In the Timestamp Ordering protocol, transactions are ordered based on:",
+hi:"Timestamp Ordering protocol में transactions किस आधार पर order होते हैं?",
+A:"Priority",
+B:"Arrival time",
+C:"Timestamp value",
+D:"Process ID",
+ans:"C"
 },
 
 {
 id:25,
-en:"Which field in IPv4 header is used for error checking?",
-hi:"IPv4 header में error checking के लिए कौन-सा field उपयोग होता है?",
-A:"TTL",
-B:"Header Checksum",
-C:"Identification",
-D:"Fragment Offset",
+en:"In concurrency control, which problem occurs when a transaction reads data that has not yet been committed?",
+hi:"Concurrency control में वह समस्या क्या है जब transaction uncommitted data पढ़ता है?",
+A:"Lost Update",
+B:"Dirty Read",
+C:"Phantom Read",
+D:"Deadlock",
 ans:"B"
 },
 
 {
 id:26,
-en:"ASCII stands for:",
-hi:"ASCII का पूर्ण रूप क्या है?",
-A:"American Standard Code for Information Interchange",
-B:"Automatic Standard Code for Information Interface",
-C:"American System Code for Information Interchange",
-D:"Automated Standard Code for Internet Interface",
-ans:"A"
-},
-
-{
-id:27,
-en:"Standard ASCII uses how many bits to represent each character?",
-hi:"Standard ASCII प्रत्येक character के लिए कितने bits उपयोग करता है?",
-A:"6",
-B:"7",
-C:"8",
-D:"16",
+en:"Which feature in MS Word is used to quickly copy formatting from one part of the document to another?",
+hi:"MS Word में formatting को जल्दी copy करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Format Brush",
+B:"Format Painter",
+C:"Style Copy",
+D:"Copy Format",
 ans:"B"
 },
 
 {
+id:27,
+en:"Which shortcut key is used to save a document in MS Word?",
+hi:"MS Word में document save करने के लिए कौन-सी shortcut key उपयोग होती है?",
+A:"Ctrl + S",
+B:"Ctrl + D",
+C:"Ctrl + W",
+D:"Ctrl + E",
+ans:"A"
+},
+
+{
 id:28,
-en:"Extended ASCII typically uses how many bits?",
-hi:"Extended ASCII सामान्यतः कितने bits का उपयोग करता है?",
-A:"7 bits",
-B:"8 bits",
-C:"16 bits",
-D:"32 bits",
+en:"Which MS Word feature automatically corrects spelling mistakes as you type?",
+hi:"Typing करते समय spelling mistake automatically सही करने वाला feature कौन-सा है?",
+A:"AutoFormat",
+B:"AutoCorrect",
+C:"Spell Check",
+D:"Grammar Check",
 ans:"B"
 },
 
 {
 id:29,
-en:"How many characters can be represented using standard ASCII?",
-hi:"Standard ASCII से कितने characters represent किए जा सकते हैं?",
-A:"64",
-B:"128",
-C:"256",
-D:"512",
+en:"Which tab in MS Word contains the option to insert pictures?",
+hi:"MS Word में pictures insert करने का option किस tab में होता है?",
+A:"Home",
+B:"Insert",
+C:"Layout",
+D:"Review",
 ans:"B"
 },
 
 {
 id:30,
-en:"EBCDIC stands for:",
-hi:"EBCDIC का पूर्ण रूप क्या है?",
-A:"Extended Binary Code for Data Interchange Code",
-B:"Extended Binary Coded Decimal Interchange Code",
-C:"Electronic Binary Code for Data Interchange Code",
-D:"Extended Binary Character Data Interface Code",
-ans:"B"
+en:"Which MS Word view shows multiple pages at once for easy navigation?",
+hi:"MS Word में कौन-सा view एक साथ multiple pages दिखाता है?",
+A:"Draft View",
+B:"Print Layout",
+C:"Multiple Pages View",
+D:"Web Layout",
+ans:"C"
 },
 
 {
 id:31,
-en:"EBCDIC was mainly developed by:",
-hi:"EBCDIC मुख्य रूप से किसने विकसित किया?",
-A:"Microsoft",
-B:"IBM",
-C:"Intel",
-D:"Apple",
+en:"Which feature allows collaboration by adding comments in a document?",
+hi:"Document में comments जोड़कर collaboration करने वाला feature कौन-सा है?",
+A:"Review Comments",
+B:"Insert Comment",
+C:"Track Changes",
+D:"Annotation",
 ans:"B"
 },
 
 {
 id:32,
-en:"Which encoding scheme is mainly used in IBM mainframe systems?",
-hi:"IBM mainframe systems में मुख्य रूप से कौन-सा encoding scheme उपयोग होता है?",
-A:"ASCII",
-B:"Unicode",
-C:"EBCDIC",
-D:"UTF-8",
-ans:"C"
+en:"Which MS Word feature allows inserting predefined building blocks like cover pages and headers?",
+hi:"Predefined blocks (cover page, header) insert करने वाला feature कौन-सा है?",
+A:"Quick Parts",
+B:"Smart Parts",
+C:"Word Blocks",
+D:"Text Blocks",
+ans:"A"
 },
 
 {
 id:33,
-en:"ASCII code for the character 'A' in decimal is:",
-hi:"Character 'A' का ASCII code (decimal में) क्या है?",
-A:"64",
-B:"65",
-C:"66",
-D:"67",
-ans:"B"
+en:"Which feature allows inserting a reference to a heading or figure in the document?",
+hi:"Document में heading या figure का reference insert करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Bookmark",
+B:"Hyperlink",
+C:"Cross-reference",
+D:"Citation",
+ans:"C"
 },
 
 {
 id:34,
-en:"ASCII code for digit '0' starts from decimal:",
-hi:"Digit '0' का ASCII code (decimal में) किससे शुरू होता है?",
-A:"46",
-B:"48",
-C:"50",
-D:"52",
+en:"Which MS Word option allows changing the orientation of the page?",
+hi:"Page orientation बदलने के लिए कौन-सा option उपयोग होता है?",
+A:"Page Layout",
+B:"Orientation",
+C:"Format",
+D:"Page Setup",
 ans:"B"
 },
 
 {
 id:35,
-en:"Which encoding system supports 256 different characters?",
-hi:"कौन-सा encoding system 256 characters को support करता है?",
-A:"ASCII",
-B:"Extended ASCII",
-C:"EBCDIC",
-D:"Both B and C",
-ans:"D"
+en:"Which shortcut key centers the selected text?",
+hi:"Selected text को center करने के लिए कौन-सी shortcut key उपयोग होती है?",
+A:"Ctrl + C",
+B:"Ctrl + E",
+C:"Ctrl + R",
+D:"Ctrl + L",
+ans:"B"
 },
 
 {
 id:36,
-en:"What does HTML stand for?",
-hi:"HTML का पूर्ण रूप क्या है?",
-A:"Hyperlinks and Text Markup Language",
-B:"Hyper Text Markup Language",
-C:"Hyper Transfer Markup Language",
-D:"High Text Markup Language",
+en:"Which MS Word feature allows automatic numbering of headings?",
+hi:"Headings की automatic numbering के लिए कौन-सा feature उपयोग होता है?",
+A:"Outline Numbering",
+B:"Multilevel List",
+C:"Number Format",
+D:"Heading List",
 ans:"B"
 },
 
 {
 id:37,
-en:"XHTML stands for:",
-hi:"XHTML का पूर्ण रूप क्या है?",
-A:"Extended Hyper Text Markup Language",
-B:"Extensible Hyper Text Markup Language",
-C:"Extra Hyper Text Markup Language",
-D:"Extended Hyperlink Text Markup Language",
-ans:"B"
+en:"Which tab contains options for inserting shapes and SmartArt?",
+hi:"Shapes और SmartArt insert करने के options किस tab में होते हैं?",
+A:"Home",
+B:"Design",
+C:"Insert",
+D:"Review",
+ans:"C"
 },
 
 {
 id:38,
-en:"Which of the following is a key rule in XHTML?",
-hi:"XHTML का एक महत्वपूर्ण नियम कौन-सा है?",
-A:"Tags may remain unclosed",
-B:"Tags must be properly closed",
-C:"Uppercase tags are mandatory",
-D:"Attributes are optional",
+en:"Which feature is used to protect a document with a password?",
+hi:"Document को password से secure करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Document Security",
+B:"Encrypt with Password",
+C:"Secure Mode",
+D:"Lock File",
 ans:"B"
 },
 
 {
 id:39,
-en:"In XHTML, attribute values must be written:",
-hi:"XHTML में attribute values कैसे लिखी जाती हैं?",
-A:"Without quotes",
-B:"In single or double quotes",
-C:"Only in single quotes",
-D:"Only in double quotes",
-ans:"B"
+en:"Which feature is used to apply the same formatting style throughout a document?",
+hi:"पूरे document में same formatting apply करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Style Set",
+B:"Template",
+C:"Format Style",
+D:"AutoFormat",
+ans:"A"
 },
 
 {
 id:40,
-en:"Which tag is used to create a hyperlink in HTML/XHTML?",
-hi:"HTML/XHTML में hyperlink बनाने के लिए कौन-सा tag उपयोग होता है?",
-A:"&lt;link&gt;",
-B:"&lt;a&gt;",
-C:"&lt;href&gt;",
-D:"&lt;url&gt;",
-ans:"B"
+en:"Which option allows splitting a page into two columns?",
+hi:"Page को दो columns में बाँटने के लिए कौन-सा option उपयोग होता है?",
+A:"Layout → Columns",
+B:"Insert → Columns",
+C:"Design → Columns",
+D:"View → Columns",
+ans:"A"
 },
 
 {
 id:41,
-en:"The TCP/IP model consists of how many layers?",
-hi:"TCP/IP model में कितनी layers होती हैं?",
-A:"3",
-B:"4",
-C:"5",
-D:"7",
+en:"Which MS Word tool is used to create diagrams and flowcharts?",
+hi:"MS Word में diagrams और flowcharts बनाने के लिए कौन-सा tool उपयोग होता है?",
+A:"Shapes",
+B:"SmartArt",
+C:"Chart",
+D:"Drawing Tool",
 ans:"B"
 },
 
 {
 id:42,
-en:"Which layer of the TCP/IP model corresponds to the Transport layer of the OSI model?",
-hi:"TCP/IP model की कौन-सी layer OSI model की Transport layer के बराबर होती है?",
-A:"Network Interface Layer",
-B:"Application Layer",
-C:"Transport Layer",
-D:"Internet Layer",
-ans:"C"
+en:"Which feature is used to insert page numbers automatically?",
+hi:"Page numbers automatically insert करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Header/Footer",
+B:"Page Number",
+C:"Page Setup",
+D:"Insert Page",
+ans:"B"
 },
 
 {
 id:43,
-en:"Which technique is used in the Data Link Layer for detecting transmission errors?",
-hi:"Data Link Layer में transmission errors detect करने के लिए कौन-सी technique उपयोग होती है?",
-A:"Parity Check",
-B:"Packet Switching",
-C:"Routing",
-D:"Encryption",
+en:"Which MS Word option automatically adjusts column width in a table?",
+hi:"Table में column width को automatically adjust करने के लिए कौन-सा option उपयोग होता है?",
+A:"AutoFit",
+B:"AutoWidth",
+C:"Table Adjust",
+D:"Fit Column",
 ans:"A"
 },
 
 {
 id:44,
-en:"In error control, which method uses an additional bit to detect errors in transmitted data?",
-hi:"Error control में कौन-सी method अतिरिक्त bit का उपयोग करके error detect करती है?",
-A:"Checksum",
-B:"Parity Bit",
-C:"Cyclic Redundancy Check",
-D:"Hamming Code",
-ans:"B"
+en:"Which feature is used to insert citations for research papers?",
+hi:"Research papers में citations insert करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Citation Tool",
+B:"Reference Manager",
+C:"Insert Citation",
+D:"Bibliography Tool",
+ans:"C"
 },
 
 {
 id:45,
-en:"CRC in data communication stands for:",
-hi:"Data communication में CRC का पूर्ण रूप क्या है?",
-A:"Cyclic Redundancy Check",
-B:"Central Routing Control",
-C:"Cyclic Routing Code",
-D:"Channel Redundancy Code",
+en:"Which feature displays document structure based on headings?",
+hi:"Headings के आधार पर document structure दिखाने वाला feature कौन-सा है?",
+A:"Navigation Pane",
+B:"Document Map",
+C:"Outline View",
+D:"Structure View",
 ans:"A"
 },
 
 {
 id:46,
-en:"The 8085 microprocessor has how many address lines?",
-hi:"8085 microprocessor में कितनी address lines होती हैं?",
-A:"8",
-B:"12",
-C:"16",
-D:"20",
-ans:"C"
+en:"Which MS Word option allows inserting special symbols?",
+hi:"Special symbols insert करने के लिए कौन-सा option उपयोग होता है?",
+A:"Insert Symbol",
+B:"Symbol Tool",
+C:"Character Map",
+D:"Special Insert",
+ans:"A"
 },
 
 {
 id:47,
-en:"What is the maximum memory size that can be addressed by the 8085 microprocessor?",
-hi:"8085 microprocessor अधिकतम कितनी memory address कर सकता है?",
-A:"32 KB",
-B:"64 KB",
-C:"128 KB",
-D:"1 MB",
-ans:"B"
+en:"Which feature helps to merge letters with address lists?",
+hi:"Letters को address list के साथ merge करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Mail Merge",
+B:"Document Merge",
+C:"Letter Combine",
+D:"Address Merge",
+ans:"A"
 },
 
 {
 id:48,
-en:"The 8086 microprocessor has how many address lines?",
-hi:"8086 microprocessor में कितनी address lines होती हैं?",
-A:"16",
-B:"20",
-C:"24",
-D:"32",
+en:"Which MS Word option allows inserting watermarks in a document?",
+hi:"Document में watermark insert करने के लिए कौन-सा option उपयोग होता है?",
+A:"Page Layout",
+B:"Design → Watermark",
+C:"Insert → Watermark",
+D:"Format → Watermark",
 ans:"B"
 },
 
 {
 id:49,
-en:"What is the maximum memory that can be addressed by the 8086 microprocessor?",
-hi:"8086 microprocessor अधिकतम कितनी memory address कर सकता है?",
-A:"512 KB",
-B:"1 MB",
-C:"2 MB",
-D:"4 MB",
+en:"Which feature allows splitting text into multiple columns?",
+hi:"Text को multiple columns में divide करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Page Break",
+B:"Columns",
+C:"Section Break",
+D:"Layout Split",
 ans:"B"
 },
 
 {
 id:50,
-en:"In 8085 microprocessor, the accumulator register is represented by:",
-hi:"8085 microprocessor में accumulator register को किससे दर्शाया जाता है?",
-A:"A",
-B:"B",
-C:"C",
-D:"D",
-ans:"A"
-},
-
-{
-id:51,
-en:"Which register in 8086 holds the address of the next instruction to be executed?",
-hi:"8086 में कौन-सा register अगले instruction का address रखता है?",
-A:"AX",
-B:"BX",
-C:"IP",
-D:"SP",
+en:"Which MS Word tool is used to highlight important text?",
+hi:"Important text को highlight करने के लिए कौन-सा tool उपयोग होता है?",
+A:"Highlighter",
+B:"Highlight Tool",
+C:"Text Highlight Color",
+D:"Mark Text",
 ans:"C"
 },
 
 {
+id:51,
+en:"Which Excel feature automatically adjusts column width to fit the contents?",
+hi:"Excel में column width को content के अनुसार automatically adjust करने के लिए कौन-सा feature उपयोग होता है?",
+A:"AutoWidth",
+B:"AutoFit",
+C:"AutoAdjust",
+D:"FitCell",
+ans:"B"
+},
+
+{
 id:52,
-en:"Consider processes P1=4, P2=3, P3=2. Using FCFS scheduling, what is the average waiting time?",
-hi:"Processes P1=4, P2=3, P3=2 के लिए FCFS scheduling में average waiting time क्या होगा?",
-A:"3",
-B:"4",
-C:"3.67",
-D:"2",
-ans:"A"
+en:"Which function is used to find the highest value in a range?",
+hi:"Range में highest value निकालने के लिए कौन-सा function उपयोग होता है?",
+A:"TOP()",
+B:"MAX()",
+C:"HIGH()",
+D:"LARGE()",
+ans:"B"
 },
 
 {
 id:53,
-en:"Processes P1=6, P2=8, P3=7, P4=3. Using SJF (non-preemptive), average waiting time is:",
-hi:"Processes P1=6, P2=8, P3=7, P4=3 के लिए SJF (non-preemptive) में average waiting time क्या होगा?",
-A:"6.25",
-B:"7.5",
-C:"8",
-D:"5.5",
-ans:"A"
+en:"Which function counts all non-empty cells?",
+hi:"Non-empty cells को count करने के लिए कौन-सा function उपयोग होता है?",
+A:"COUNT()",
+B:"COUNTA()",
+C:"COUNTIF()",
+D:"COUNTBLANK()",
+ans:"B"
 },
 
 {
 id:54,
-en:"In Round Robin (time quantum=2) for P1=5, P2=4, P3=2, which process finishes first?",
-hi:"Round Robin (time quantum=2) में P1=5, P2=4, P3=2 के लिए कौन-सा process पहले finish होगा?",
-A:"P1",
-B:"P2",
-C:"P3",
-D:"P1 and P2",
+en:"What will be the result of =LEN(\"EXCEL\") ?",
+hi:"=LEN(\"EXCEL\") का परिणाम क्या होगा?",
+A:"4",
+B:"5",
+C:"6",
+D:"7",
 ans:"C"
 },
 
 {
 id:55,
-en:"Using SJF scheduling, which process executes first for P1=10, P2=5, P3=8?",
-hi:"SJF scheduling में P1=10, P2=5, P3=8 के लिए कौन-सा process पहले execute होगा?",
-A:"P1",
-B:"P2",
-C:"P3",
-D:"None",
-ans:"B"
-},
-
-{
-id:56,
-en:"Which SQL command is used to create a new table?",
-hi:"नई table बनाने के लिए कौन-सा SQL command उपयोग होता है?",
-A:"INSERT",
-B:"CREATE",
-C:"SELECT",
-D:"UPDATE",
-ans:"B"
-},
-
-{
-id:57,
-en:"Which SQL command is used to modify the structure of an existing table?",
-hi:"Existing table की structure बदलने के लिए कौन-सा SQL command उपयोग होता है?",
-A:"UPDATE",
-B:"MODIFY",
-C:"ALTER",
-D:"CHANGE",
+en:"Which Excel function returns the current date?",
+hi:"Current date return करने के लिए कौन-सा Excel function उपयोग होता है?",
+A:"DATE()",
+B:"NOW()",
+C:"TODAY()",
+D:"CURRENT()",
 ans:"C"
 },
 
 {
+id:56,
+en:"Which function extracts characters from the middle of a text string?",
+hi:"Text string के बीच से characters निकालने के लिए कौन-सा function उपयोग होता है?",
+A:"MID()",
+B:"LEFT()",
+C:"RIGHT()",
+D:"TEXT()",
+ans:"A"
+},
+
+{
+id:57,
+en:"What does the formula =LEFT(\"COMPUTER\",4) return?",
+hi:"=LEFT(\"COMPUTER\",4) का परिणाम क्या होगा?",
+A:"COMP",
+B:"PUTER",
+C:"COM",
+D:"OM",
+ans:"A"
+},
+
+{
 id:58,
-en:"Which SQL command is used to remove a table permanently from the database?",
-hi:"Database से table को permanently हटाने के लिए कौन-सा SQL command उपयोग होता है?",
-A:"DELETE",
-B:"DROP",
-C:"REMOVE",
-D:"ERASE",
+en:"Which Excel feature allows creating charts easily from selected data?",
+hi:"Selected data से charts बनाने के लिए कौन-सा feature उपयोग होता है?",
+A:"Quick Chart",
+B:"Chart Wizard",
+C:"Smart Chart",
+D:"Chart Maker",
 ans:"B"
 },
 
 {
 id:59,
-en:"Which SQL command is used to add records into a table?",
-hi:"Table में records जोड़ने के लिए कौन-सा SQL command उपयोग होता है?",
-A:"ADD",
-B:"INSERT",
-C:"UPDATE",
-D:"APPEND",
-ans:"B"
-},
-
-{
-id:60,
-en:"Which SQL clause is used to filter records in a query?",
-hi:"Query में records filter करने के लिए कौन-सा SQL clause उपयोग होता है?",
-A:"HAVING",
-B:"WHERE",
-C:"ORDER BY",
-D:"GROUP BY",
-ans:"B"
-}, 
-
-{
-id:61,
-en:"Which SQL statement is used to change existing data in a table?",
-hi:"Table में existing data बदलने के लिए कौन-सा SQL statement उपयोग होता है?",
-A:"UPDATE",
-B:"MODIFY",
-C:"CHANGE",
-D:"ALTER",
+en:"Which function returns the remainder after division?",
+hi:"Division के बाद remainder return करने वाला function कौन-सा है?",
+A:"MOD()",
+B:"REM()",
+C:"DIV()",
+D:"RND()",
 ans:"A"
 },
 
 {
+id:60,
+en:"Which Excel function converts text to uppercase?",
+hi:"Text को uppercase में बदलने के लिए कौन-सा function उपयोग होता है?",
+A:"UPPER()",
+B:"CAPITAL()",
+C:"UCASE()",
+D:"BIG()",
+ans:"A"
+},
+
+{
+id:61,
+en:"Which Excel function returns the smallest value in a range?",
+hi:"Range में सबसे छोटी value निकालने के लिए कौन-सा Excel function उपयोग होता है?",
+A:"SMALL()",
+B:"MIN()",
+C:"LOW()",
+D:"LOWER()",
+ans:"B"
+},
+
+{
 id:62,
-en:"Which SQL command removes all rows from a table but keeps the structure?",
-hi:"कौन-सा SQL command table के सभी rows हटाता है लेकिन structure बनाए रखता है?",
-A:"DELETE",
-B:"TRUNCATE",
-C:"DROP",
-D:"REMOVE",
+en:"What will be the output of =POWER(3,2) ?",
+hi:"=POWER(3,2) का परिणाम क्या होगा?",
+A:"6",
+B:"9",
+C:"12",
+D:"18",
 ans:"B"
 },
 
 {
 id:63,
-en:"Which command is used to grant privileges to users in SQL?",
-hi:"SQL में users को privileges देने के लिए कौन-सा command उपयोग होता है?",
-A:"GRANT",
-B:"PERMIT",
-C:"ALLOW",
-D:"ACCESS",
-ans:"A"
+en:"Which Excel feature freezes rows or columns while scrolling?",
+hi:"Scrolling के दौरान rows या columns को freeze करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Lock Pane",
+B:"Freeze Panes",
+C:"Fixed Rows",
+D:"Scroll Lock",
+ans:"B"
 },
 
 {
 id:64,
-en:"Which SQL command is used to take back privileges from a user?",
-hi:"User से privileges वापस लेने के लिए कौन-सा SQL command उपयोग होता है?",
-A:"DENY",
-B:"REMOVE",
-C:"REVOKE",
-D:"CANCEL",
-ans:"C"
+en:"Which function joins multiple text strings together?",
+hi:"Multiple text strings को जोड़ने के लिए कौन-सा function उपयोग होता है?",
+A:"JOIN()",
+B:"CONCATENATE()",
+C:"TEXTJOIN()",
+D:"MERGE()",
+ans:"B"
 },
 
 {
 id:65,
-en:"Which TCL command is used to permanently save changes in a transaction?",
-hi:"Transaction में changes को permanently save करने के लिए कौन-सा TCL command उपयोग होता है?",
-A:"SAVE",
-B:"COMMIT",
-C:"END",
-D:"FINISH",
+en:"Which function counts cells meeting a specified condition?",
+hi:"Condition के अनुसार cells count करने के लिए कौन-सा function उपयोग होता है?",
+A:"COUNT()",
+B:"COUNTIF()",
+C:"COUNTA()",
+D:"COUNTBLANK()",
 ans:"B"
 },
 
 {
 id:66,
-en:"Which TCL command is used to undo changes made in a transaction?",
-hi:"Transaction में किए गए changes को undo करने के लिए कौन-सा TCL command उपयोग होता है?",
-A:"CANCEL",
-B:"RESET",
-C:"ROLLBACK",
-D:"UNDO",
-ans:"C"
+en:"Which Excel function finds the position of a text string within another text?",
+hi:"Text string की position खोजने के लिए कौन-सा function उपयोग होता है?",
+A:"SEARCH()",
+B:"FINDPOS()",
+C:"LOCATE()",
+D:"MATCH()",
+ans:"A"
 },
 
 {
 id:67,
-en:"Which SQL constraint ensures that a column cannot contain NULL values?",
-hi:"कौन-सा SQL constraint यह सुनिश्चित करता है कि column में NULL values न हों?",
-A:"UNIQUE",
-B:"NOT NULL",
-C:"CHECK",
-D:"DEFAULT",
+en:"Which function returns the square root of a number?",
+hi:"Square root निकालने के लिए कौन-सा function उपयोग होता है?",
+A:"ROOT()",
+B:"SQRT()",
+C:"SQUARE()",
+D:"POWER()",
 ans:"B"
 },
 
 {
 id:68,
-en:"Which constraint ensures that each value in a column is unique?",
-hi:"कौन-सा constraint यह सुनिश्चित करता है कि column की हर value unique हो?",
-A:"UNIQUE",
-B:"PRIMARY KEY",
-C:"CHECK",
-D:"FOREIGN KEY",
-ans:"B"
+en:"Which Excel function converts text to lowercase?",
+hi:"Text को lowercase में बदलने के लिए कौन-सा function उपयोग होता है?",
+A:"LOWER()",
+B:"SMALL()",
+C:"LCASE()",
+D:"TEXTLOW()",
+ans:"A"
 },
 
 {
 id:69,
-en:"Which constraint is used to maintain referential integrity?",
-hi:"Referential integrity बनाए रखने के लिए कौन-सा constraint उपयोग होता है?",
-A:"PRIMARY KEY",
-B:"UNIQUE",
-C:"FOREIGN KEY",
-D:"CHECK",
-ans:"C"
+en:"Which Excel tool removes duplicate records from a dataset?",
+hi:"Dataset से duplicate records हटाने के लिए कौन-सा tool उपयोग होता है?",
+A:"Remove Duplicates",
+B:"Delete Copies",
+C:"Unique Filter",
+D:"Data Cleaner",
+ans:"A"
 },
 
 {
 id:70,
-en:"Which SQL function returns the number of rows in a table?",
-hi:"कौन-सा SQL function table में rows की संख्या लौटाता है?",
-A:"SUM()",
-B:"COUNT()",
-C:"TOTAL()",
-D:"NUMBER()",
-ans:"B"
+en:"Which feature allows applying conditions to format cells automatically?",
+hi:"Conditions के आधार पर cells को format करने के लिए कौन-सा feature उपयोग होता है?",
+A:"Conditional Formatting",
+B:"Format Rules",
+C:"Auto Formatting",
+D:"Smart Format",
+ans:"A"
 },
 
 {
 id:71,
-en:"Kullu Dussehra begins on:",
-hi:"कुल्लू दशहरा कब शुरू होता है?",
-A:"Navami",
-B:"Dussehra Day",
-C:"Diwali",
-D:"Holi",
+en:"The ancient name of Kangra was:",
+hi:"कांगड़ा का प्राचीन नाम क्या था?",
+A:"Nagarkot",
+B:"Trigarta",
+C:"Kuluta",
+D:"Audumbara",
 ans:"B"
 },
 
 {
 id:72,
-en:"Hamirpur district was created in:",
-hi:"हमीरपुर जिला कब बनाया गया था?",
-A:"1965",
-B:"1972",
-C:"1980",
-D:"1995",
-ans:"B"
+en:"Kangra Fort was built by which dynasty?",
+hi:"कांगड़ा किला किस वंश ने बनाया था?",
+A:"Katoch dynasty",
+B:"Chand dynasty",
+C:"Sen dynasty",
+D:"Pal dynasty",
+ans:"A"
 },
 
 {
 id:73,
-en:"Central Potato Research Institute is located at:",
-hi:"केंद्रीय आलू अनुसंधान संस्थान कहाँ स्थित है?",
+en:"During British rule the summer capital of India was:",
+hi:"ब्रिटिश काल में भारत की ग्रीष्मकालीन राजधानी क्या थी?",
 A:"Shimla",
-B:"Kufri",
-C:"Solan",
-D:"Mandi",
-ans:"B"
+B:"Dharamshala",
+C:"Mandi",
+D:"Chamba",
+ans:"A"
 },
 
 {
 id:74,
-en:"Chamera Hydroelectric Project is located in:",
-hi:"चमेरा जलविद्युत परियोजना कहाँ स्थित है?",
+en:"Bhuri Singh Museum is located in:",
+hi:"भूरी सिंह संग्रहालय कहाँ स्थित है?",
 A:"Kangra",
 B:"Chamba",
-C:"Mandi",
+C:"Shimla",
 D:"Kullu",
 ans:"B"
 },
 
 {
 id:75,
-en:"The smallest district of Himachal Pradesh is:",
-hi:"हिमाचल प्रदेश का सबसे छोटा जिला कौन-सा है?",
-A:"Hamirpur",
-B:"Bilaspur",
-C:"Solan",
-D:"Una",
+en:"Jwala Ji Temple is located in which district of Himachal Pradesh?",
+hi:"ज्वाला जी मंदिर हिमाचल प्रदेश के किस जिले में स्थित है?",
+A:"Kangra",
+B:"Chamba",
+C:"Kullu",
+D:"Bilaspur",
 ans:"A"
 },
 
 {
 id:76,
-en:"Roerich Art Gallery is located at:",
-hi:"रोएरिच आर्ट गैलरी कहाँ स्थित है?",
-A:"Kullu",
-B:"Naggar",
-C:"Manali",
-D:"Shimla",
-ans:"B"
+en:"The largest glacier in Himachal Pradesh is:",
+hi:"हिमाचल प्रदेश का सबसे बड़ा ग्लेशियर कौन-सा है?",
+A:"Bara Shigri Glacier",
+B:"Gangotri Glacier",
+C:"Pindari Glacier",
+D:"Milam Glacier",
+ans:"A"
 },
 
 {
 id:77,
-en:"Himachal Pradesh University is located in:",
-hi:"हिमाचल प्रदेश विश्वविद्यालय कहाँ स्थित है?",
-A:"Dharamshala",
-B:"Shimla",
-C:"Solan",
-D:"Mandi",
-ans:"B"
-},
-
-{
-id:78,
-en:"First hydroelectric project in Asia was established at:",
-hi:"एशिया का पहला जलविद्युत परियोजना कहाँ स्थापित किया गया था?",
-A:"Jogindernagar",
-B:"Shimla",
-C:"Palampur",
-D:"Chamba",
-ans:"A"
-},
-
-{
-id:79,
-en:"Minjar Fair celebrates harvesting of:",
-hi:"मिंजर मेला किस फसल की कटाई का उत्सव है?",
-A:"Wheat",
-B:"Rice",
-C:"Maize",
-D:"Barley",
+en:"The Spiti River is a tributary of:",
+hi:"स्पीति नदी किसकी सहायक नदी है?",
+A:"Ravi",
+B:"Beas",
+C:"Satluj",
+D:"Chenab",
 ans:"C"
 },
 
 {
-id:80,
-en:"Laxmi Narayan Temple is located in:",
-hi:"लक्ष्मी नारायण मंदिर कहाँ स्थित है?",
-A:"Chamba",
-B:"Kangra",
-C:"Mandi",
-D:"Kullu",
+id:78,
+en:"Headquarters of Lahaul-Spiti district is:",
+hi:"लाहौल-स्पीति जिले का मुख्यालय कहाँ है?",
+A:"Keylong",
+B:"Kaza",
+C:"Tabo",
+D:"Udaipur",
+ans:"B"
+},
+
+{
+id:79,
+en:"Khajjiar meadow is located in:",
+hi:"खज्जियार घास का मैदान कहाँ स्थित है?",
+A:"Chamba district",
+B:"Kangra district",
+C:"Kullu district",
+D:"Mandi district",
 ans:"A"
-}, 
+},
+
+{
+id:80,
+en:"Rewalsar Lake is located in:",
+hi:"रिवालसर झील कहाँ स्थित है?",
+A:"Mandi district",
+B:"Kangra district",
+C:"Chamba district",
+D:"Shimla district",
+ans:"A"
+},
 
 {
 id:81,
-en:"Fagli Festival is celebrated in:",
-hi:"फागली उत्सव कहाँ मनाया जाता है?",
-A:"Kinnaur",
-B:"Lahaul",
-C:"Spiti",
-D:"Chamba",
+en:"The highest peak in the Dhauladhar range is:",
+hi:"धौलाधार पर्वतमाला की सबसे ऊँची चोटी कौन-सी है?",
+A:"Deo Tibba",
+B:"Hanuman Tibba",
+C:"Indrahar Pass",
+D:"Shrikhand",
 ans:"B"
 },
 
 {
 id:82,
-en:"Hidimba Devi Temple was built in:",
-hi:"हिडिंबा देवी मंदिर कब बनाया गया था?",
-A:"14th century",
-B:"15th century",
-C:"16th century",
-D:"17th century",
-ans:"C"
-},
-
-{
-id:83,
-en:"The largest natural lake of Himachal Pradesh is:",
-hi:"हिमाचल प्रदेश की सबसे बड़ी प्राकृतिक झील कौन-सी है?",
-A:"Renuka Lake",
-B:"Rewalsar Lake",
-C:"Khajjiar Lake",
-D:"Dal Lake",
-ans:"A"
-},
-
-{
-id:84,
-en:"River Ravi originates from:",
-hi:"रावी नदी का उद्गम कहाँ से होता है?",
-A:"Rohtang Pass",
-B:"Bara Banghal",
-C:"Kangra Hills",
-D:"Himalayas",
-ans:"D"
-},
-
-{
-id:85,
-en:"Shikari Devi Temple is located in:",
-hi:"शिकारी देवी मंदिर कहाँ स्थित है?",
-A:"Mandi",
-B:"Kangra",
-C:"Kullu",
-D:"Chamba",
-ans:"A"
-},
-
-{
-id:86,
-en:"The state animal of Himachal Pradesh is:",
-hi:"हिमाचल प्रदेश का राज्य पशु कौन-सा है?",
-A:"Snow Leopard",
-B:"Musk Deer",
-C:"Himalayan Black Bear",
-D:"Yak",
+en:"Parvati Valley lies in which district?",
+hi:"पार्वती घाटी किस जिले में स्थित है?",
+A:"Shimla",
+B:"Kullu",
+C:"Chamba",
+D:"Kangra",
 ans:"B"
 },
 
 {
+id:83,
+en:"Traditional cap of Himachal Pradesh is called:",
+hi:"हिमाचल प्रदेश की पारंपरिक टोपी को क्या कहा जाता है?",
+A:"Pagdi",
+B:"Himachali Cap",
+C:"Turban",
+D:"Safa",
+ans:"B"
+},
+
+{
+id:84,
+en:"Shoolini Fair is celebrated in:",
+hi:"शूलिनी मेला कहाँ मनाया जाता है?",
+A:"Solan",
+B:"Shimla",
+C:"Mandi",
+D:"Kangra",
+ans:"A"
+},
+
+{
+id:85,
+en:"Nathpa Jhakri Hydroelectric Project is built on:",
+hi:"नाथपा झाकड़ी जलविद्युत परियोजना किस नदी पर स्थित है?",
+A:"Ravi River",
+B:"Chenab River",
+C:"Beas River",
+D:"Satluj River",
+ans:"D"
+},
+
+{
+id:86,
+en:"Tabo Monastery is located in:",
+hi:"ताबो मठ कहाँ स्थित है?",
+A:"Kinnaur",
+B:"Lahaul",
+C:"Spiti",
+D:"Kullu",
+ans:"C"
+},
+
+{
 id:87,
-en:"Fill in the blank: He is taller ______ his brother.",
-hi:"रिक्त स्थान भरें: He is taller ______ his brother.",
-A:"then",
-B:"than",
-C:"from",
-D:"of",
+en:"Fill in the blank: She is fond ______ music.",
+hi:"रिक्त स्थान भरें: She is fond ______ music.",
+A:"in",
+B:"of",
+C:"at",
+D:"for",
 ans:"B"
 },
 
 {
 id:88,
-en:"Choose the correct passive voice: 'They completed the work.'",
-hi:"सही passive voice चुनिए: 'They completed the work.'",
-A:"The work has completed.",
-B:"The work was completed.",
-C:"The work completed.",
-D:"The work is completed.",
+en:"Choose the correct sentence.",
+hi:"सही वाक्य चुनिए।",
+A:"He go to school every day.",
+B:"He goes to school every day.",
+C:"He going to school every day.",
+D:"He gone to school every day.",
 ans:"B"
 },
 
 {
 id:89,
-en:"Choose the correct one word substitution: 'A person who cannot read or write.'",
-hi:"एक शब्द में बताइए: 'जो पढ़-लिख नहीं सकता'",
-A:"Educated",
-B:"Scholar",
-C:"Illiterate",
-D:"Teacher",
-ans:"C"
-},
-
-{
-id:90,
-en:"Identify the part of speech of the word 'Beautiful'.",
-hi:"'Beautiful' शब्द का part of speech क्या है?",
-A:"Verb",
-B:"Adjective",
-C:"Adverb",
-D:"Noun",
+en:"Identify the synonym of the word 'Rapid'.",
+hi:"'Rapid' शब्द का पर्यायवाची चुनिए।",
+A:"Slow",
+B:"Fast",
+C:"Late",
+D:"Quiet",
 ans:"B"
 },
 
 {
+id:90,
+en:"Fill in the blank: The train ______ before we reached the station.",
+hi:"रिक्त स्थान भरें: The train ______ before we reached the station.",
+A:"left",
+B:"leaves",
+C:"had left",
+D:"leaving",
+ans:"C"
+},
+
+{
 id:91,
-en:"Fill in the blank: Neither Ram nor his friends ______ present in the meeting.",
-hi:"रिक्त स्थान भरें: Neither Ram nor his friends ______ meeting में उपस्थित थे।",
-A:"was",
-B:"were",
-C:"is",
-D:"be",
+en:"Choose the correct article: He bought ______ umbrella yesterday.",
+hi:"सही article चुनिए: He bought ______ umbrella yesterday.",
+A:"a",
+B:"an",
+C:"the",
+D:"no article",
 ans:"B"
 },
 
 {
 id:92,
-en:"In the sentence 'राम ने फल खाया।' what is 'राम'?",
-hi:"वाक्य 'राम ने फल खाया।' में 'राम' क्या है?",
-A:"सर्वनाम",
-B:"क्रिया",
-C:"संज्ञा",
-D:"विशेषण",
-ans:"C"
+en:"Identify the antonym of the word 'Ancient'.",
+hi:"'Ancient' शब्द का विलोम चुनिए।",
+A:"Old",
+B:"Modern",
+C:"Historic",
+D:"Past",
+ans:"B"
 },
 
 {
 id:93,
-en:"‘बहुत’ शब्द किस प्रकार का विशेषण है?",
-hi:"'बहुत' किस प्रकार का विशेषण है?",
-A:"गुणवाचक",
-B:"संख्यावाचक",
-C:"परिमाणवाचक",
-D:"संकेतवाचक",
+en:"'विद्यालय' शब्द में कौन-सा समास है?",
+hi:"'विद्यालय' शब्द में कौन-सा समास है?",
+A:"द्वंद्व समास",
+B:"कर्मधारय समास",
+C:"तत्पुरुष समास",
+D:"बहुव्रीहि समास",
 ans:"C"
 },
 
 {
 id:94,
-en:"In the sentence 'राम और श्याम पढ़ रहे हैं।' what is 'और'?",
-hi:"वाक्य 'राम और श्याम पढ़ रहे हैं।' में 'और' क्या है?",
-A:"संबंधबोधक",
-B:"समुच्चयबोधक",
-C:"विस्मयादिबोधक",
-D:"निपात",
+en:"'अत्यंत' शब्द में कौन-सा उपसर्ग है?",
+hi:"'अत्यंत' शब्द में कौन-सा उपसर्ग है?",
+A:"अ",
+B:"अति",
+C:"अंत",
+D:"अत्य",
 ans:"B"
 },
 
 {
 id:95,
-en:"‘धीरे-धीरे’ शब्द किस प्रकार का अव्यय है?",
-hi:"'धीरे-धीरे' किस प्रकार का अव्यय है?",
-A:"क्रिया विशेषण",
-B:"निपात",
-C:"समुच्चयबोधक",
-D:"विस्मयादिबोधक",
+en:"'जो कभी न मरे' के लिए एक शब्द है:",
+hi:"'जो कभी न मरे' के लिए एक शब्द क्या है?",
+A:"अमर",
+B:"अजर",
+C:"अमृत",
+D:"अनश्वर",
 ans:"A"
 },
 
 {
 id:96,
-en:"If A is the brother of B, B is the sister of C, and C is the father of D, then how is A related to D?",
-hi:"यदि A, B का भाई है, B, C की बहन है, और C, D का पिता है, तो A का D से क्या संबंध है?",
-A:"Uncle",
-B:"Brother",
-C:"Father",
-D:"Grandfather",
-ans:"A"
+en:"'नदी' शब्द किस लिंग का है?",
+hi:"'नदी' शब्द किस लिंग का है?",
+A:"पुल्लिंग",
+B:"स्त्रीलिंग",
+C:"नपुंसकलिंग",
+D:"उभयलिंग",
+ans:"B"
 },
 
 {
 id:97,
-en:"Find the missing number: 5, 10, 20, 40, ?",
-hi:"लुप्त संख्या ज्ञात करें: 5, 10, 20, 40, ?",
-A:"60",
-B:"70",
-C:"80",
-D:"90",
-ans:"C"
+en:"Find the next number in the series: 3, 9, 27, 81, ?",
+hi:"श्रृंखला में अगली संख्या ज्ञात करें: 3, 9, 27, 81, ?",
+A:"162",
+B:"243",
+C:"324",
+D:"729",
+ans:"B"
 },
 
 {
 id:98,
-en:"In a certain code language, CAT is written as DBU. How is BAT written?",
-hi:"एक code language में CAT = DBU है, तो BAT कैसे लिखा जाएगा?",
-A:"CBU",
-B:"DBU",
-C:"DBT",
-D:"CBV",
+en:"If BOOK is written as CPPL, how is WORD written?",
+hi:"यदि BOOK = CPPL है, तो WORD कैसे लिखा जाएगा?",
+A:"XPSE",
+B:"XQSE",
+C:"XPSF",
+D:"XORD",
 ans:"A"
 },
 
 {
 id:99,
-en:"Which country hosted the ICC Men's Cricket World Cup 2023?",
-hi:"ICC Men's Cricket World Cup 2023 किस देश ने host किया?",
-A:"Australia",
-B:"India",
-C:"England",
-D:"South Africa",
-ans:"B"
+en:"Find the odd one out:",
+hi:"विषम शब्द चुनिए:",
+A:"Apple",
+B:"Mango",
+C:"Potato",
+D:"Orange",
+ans:"C"
 },
 
 {
 id:100,
-en:"Which mission successfully landed near the south pole of the Moon in 2023?",
-hi:"2023 में चंद्रमा के दक्षिण ध्रुव के पास कौन-सा मिशन सफलतापूर्वक उतरा?",
-A:"Chandrayaan-2",
-B:"Chandrayaan-3",
-C:"Aditya-L1",
-D:"Gaganyaan",
+en:"Who is the current Chief Justice of India (2025)?",
+hi:"भारत के वर्तमान मुख्य न्यायाधीश (2025) कौन हैं?",
+A:"D.Y. Chandrachud",
+B:"Sanjiv Khanna",
+C:"U.U. Lalit",
+D:"N.V. Ramana",
 ans:"B"
 }
+
 
 ]
 let current=0
