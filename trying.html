@@ -25,7 +25,6 @@ font-weight:bold;
 }
 
 .card{
-position:relative;
 max-width:800px;
 margin:20px auto;
 background:rgba(255,255,255,0.15);
@@ -33,31 +32,6 @@ backdrop-filter:blur(15px);
 padding:25px;
 border-radius:15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
-overflow:hidden;
-}
-
-/* WATERMARK */
-.card::before{
-content:"MOCKSHASTRA MOCKSHASTRA MOCKSHASTRA MOCKSHASTRA MOCKSHASTRA MOCKSHASTRA";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-font-size:28px;
-color:rgba(255,255,255,0.07);
-transform:rotate(-30deg);
-display:flex;
-flex-wrap:wrap;
-align-content:center;
-justify-content:center;
-pointer-events:none;
-z-index:0;
-}
-
-.card *{
-position:relative;
-z-index:1;
 }
 
 input{
@@ -99,7 +73,7 @@ margin:10px;
 
 <body>
 
-<div class="header">MOCKSHASTRA MOCK TEST</div>
+<div class="header">MOCKSHASTRA - Free Mock Test</div>
 
 <div class="timer" id="timer" style="display:none"></div>
 
@@ -120,6 +94,9 @@ margin:10px;
 <div class="card" id="resultBox" style="display:none"></div>
 
 <script>
+
+// ✅ FIXED MOCK NAME
+let mockNo="Free Mock Test"
 
 let questions=[
 {
@@ -206,7 +183,8 @@ let q=questions[current]
 let html=""
 
 html+=`<b>Name:</b> ${name}<br>`
-html+=`<b>Phone:</b> ${phone}<br><br>`
+html+=`<b>Phone:</b> ${phone}<br>`
+html+=`<b>Test:</b> ${mockNo}<br><br>`
 
 html+=`<h3>Q${current+1}. ${q.en}</h3>`
 html+=`<p>${q.hi}</p>`
@@ -255,6 +233,7 @@ let html=""
 html+=`<h2>RESULT</h2>`
 html+=`<b>Name:</b> ${name}<br>`
 html+=`<b>Phone:</b> ${phone}<br>`
+html+=`<b>Test:</b> ${mockNo}<br>`
 html+=`<b>Score:</b> ${score}/${questions.length}<br><br>`
 
 questions.forEach((q,i)=>{
@@ -265,7 +244,7 @@ html+=`A. ${q.A}<br>`
 html+=`B. ${q.B}<br>`
 html+=`C. ${q.C}<br>`
 html+=`D. ${q.D}<br><br>`
-html+=`Your Answer: ${userAnswers[i] || "NA"}<br>`
+html+=`Your Answer: ${userAnswers[i] || "Not Attempted"}<br>`
 html+=`Correct Answer: ${q.ans}<br>`
 })
 
@@ -274,18 +253,15 @@ html+=`<br><button onclick="downloadPDF()">Download PDF</button>`
 box.innerHTML=html
 }
 
-// ✅ FINAL FIXED PDF
 async function downloadPDF(){
 
 const { jsPDF } = window.jspdf
 
 let element = document.getElementById("resultBox")
 
-// white background
 element.style.background = "#ffffff"
 element.style.color = "#000"
 
-// delay
 await new Promise(resolve => setTimeout(resolve, 1000))
 
 let canvas = await html2canvas(element, {
@@ -303,7 +279,8 @@ let imgHeight = canvas.height * imgWidth / canvas.width
 
 pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight)
 
-pdf.save("Mockshastra_Result.pdf")
+// file name clean
+pdf.save("Mock_"+mockNo.replace(/\s+/g,'_')+"_Result.pdf")
 }
 
 </script>
