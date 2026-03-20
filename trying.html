@@ -12,30 +12,33 @@
 
 body{
 margin:0;
-font-family:Arial;
-background:#eef2ff;
+font-family:Segoe UI, Arial;
+background:#f4f6f9;
 }
 
-/* TOP BAR */
-.topbar{
+/* HEADER */
+.header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 20px;
-background:#4f46e5;
+padding:12px 20px;
+background:#2c3e50;
 color:white;
 font-size:18px;
+}
+
+.timer{
 font-weight:bold;
 }
 
-/* CARD */
-.card{
-max-width:850px;
+/* MAIN BOX */
+.container{
+max-width:750px;
 margin:20px auto;
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 8px 25px rgba(0,0,0,0.15);
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 /* INPUT */
@@ -43,52 +46,56 @@ input{
 width:100%;
 padding:12px;
 margin:10px 0;
-border-radius:8px;
 border:1px solid #ccc;
+border-radius:6px;
 }
 
 /* BUTTON */
 button{
-background:#4f46e5;
+background:#3498db;
 color:white;
 border:none;
-padding:12px 18px;
-border-radius:8px;
+padding:12px;
+border-radius:6px;
 font-size:16px;
 cursor:pointer;
 }
 
 button:hover{
-background:#4338ca;
+background:#2980b9;
 }
 
-/* QUESTION SIZE BIG */
+/* QUESTION */
 h3{
-font-size:28px;
-font-weight:bold;
+font-size:26px;
+margin-bottom:10px;
 }
 
 p{
-font-size:22px;
+font-size:20px;
+margin-bottom:15px;
 }
 
+/* OPTIONS */
 .option{
 display:block;
-font-size:20px;
-padding:14px;
-margin:10px 0;
-background:#f3f4f6;
-border-radius:8px;
+padding:12px;
+margin:8px 0;
+border:1px solid #ddd;
+border-radius:6px;
 cursor:pointer;
+font-size:18px;
+transition:0.2s;
 }
 
 .option:hover{
-background:#e0e7ff;
+background:#ecf5ff;
+border-color:#3498db;
 }
 
-/* TIMER */
-#timer{
-font-size:18px;
+/* RESULT */
+.result{
+line-height:1.6;
 }
 
 </style>
@@ -97,35 +104,34 @@ font-size:18px;
 
 <body>
 
-<div class="topbar">
+<div class="header">
 <div id="testTitle"></div>
-<div id="timer"></div>
+<div class="timer" id="timer"></div>
 </div>
 
-<div class="card" id="formBox">
+<div class="container" id="formBox">
 <h3>Enter Details</h3>
 <input id="name" placeholder="Enter Name">
 <input id="phone" placeholder="Enter Phone">
 <button onclick="startCountdown()">Start Test</button>
 </div>
 
-<div class="card" id="countBox" style="display:none;text-align:center">
-<h2>Starting in</h2>
+<div class="container" id="countBox" style="display:none;text-align:center">
+<h2>Test starts in</h2>
 <h1 id="count">5</h1>
 </div>
 
-<div class="card" id="questionBox" style="display:none"></div>
+<div class="container" id="questionBox" style="display:none"></div>
 
-<div class="card" id="resultBox" style="display:none"></div>
+<div class="container" id="resultBox" style="display:none"></div>
 
 <script>
 
-/* 🔥 CHANGE THIS ONLY */
+/* 🔥 CHANGE THIS */
 let mockTestNo = "Mock Test 1"
 
 document.getElementById("testTitle").innerText = mockTestNo
 
-/* QUESTIONS (100 डाल सकते हो) */
 let questions=[
 {
 en:"Which aggregate function calculates average?",
@@ -173,12 +179,11 @@ document.getElementById("countBox").style.display="block"
 let t=5
 
 let c=setInterval(()=>{
-document.getElementById("count").innerHTML=t
+document.getElementById("count").innerText=t
 t--
 
 if(t<0){
 clearInterval(c)
-
 document.getElementById("countBox").style.display="none"
 document.getElementById("questionBox").style.display="block"
 
@@ -189,12 +194,11 @@ showQuestion()
 },1000)
 }
 
-/* TIMER */
 function startTimer(){
 timerInterval=setInterval(()=>{
 let m=Math.floor(time/60)
 let s=time%60
-document.getElementById("timer").innerHTML="⏱ "+m+":"+(s<10?"0":"")+s
+document.getElementById("timer").innerText="⏱ "+m+":"+(s<10?"0":"")+s
 time--
 
 if(time<0){
@@ -204,16 +208,13 @@ showResult()
 },1000)
 }
 
-/* SHOW QUESTION */
 function showQuestion(){
 
 let q=questions[current]
 
 let html=""
 
-html+=`<div style="margin-bottom:10px;">
-<b>${name}</b> | ${phone}
-</div>`
+html+=`<b>${name}</b> | ${phone}<br><br>`
 
 html+=`<h3>Q${current+1}/${questions.length}. ${q.en}</h3>`
 html+=`<p>${q.hi}</p>`
@@ -228,7 +229,6 @@ html+=`<br><button onclick="nextQuestion()">Next</button>`
 document.getElementById("questionBox").innerHTML=html
 }
 
-/* NEXT */
 function nextQuestion(){
 
 let selected=document.querySelector('input[name="ans"]:checked')
@@ -249,7 +249,6 @@ showResult()
 }
 }
 
-/* RESULT */
 function showResult(){
 
 clearInterval(timerInterval)
@@ -261,7 +260,7 @@ box.style.display="block"
 
 let html=""
 
-html+=`<h2>RESULT</h2>`
+html+=`<h2>Result</h2>`
 html+=`<b>Name:</b> ${name}<br>`
 html+=`<b>Phone:</b> ${phone}<br>`
 html+=`<b>Test:</b> ${mockTestNo}<br>`
@@ -284,42 +283,38 @@ html+=`<br><button onclick="downloadPDF()">Download PDF</button>`
 box.innerHTML=html
 }
 
-/* 🔥 PDF (MULTI PAGE + SMALL SIZE) */
 async function downloadPDF(){
 
 const { jsPDF } = window.jspdf
 
-let element = document.getElementById("resultBox")
+let element=document.getElementById("resultBox")
 
-element.style.background = "#fff"
-element.style.color = "#000"
+element.style.background="#fff"
+element.style.color="#000"
 
 await new Promise(r=>setTimeout(r,800))
 
-let canvas = await html2canvas(element,{
-scale:1.5,
-useCORS:true
-})
+let canvas=await html2canvas(element,{scale:1.5})
 
-let imgData = canvas.toDataURL("image/jpeg",0.6)
+let imgData=canvas.toDataURL("image/jpeg",0.6)
 
-let pdf = new jsPDF("p","mm","a4")
+let pdf=new jsPDF("p","mm","a4")
 
-let imgWidth = 190
-let pageHeight = 297
-let imgHeight = canvas.height * imgWidth / canvas.width
+let imgWidth=190
+let pageHeight=297
+let imgHeight=canvas.height*imgWidth/canvas.width
 
-let heightLeft = imgHeight
-let position = 10
+let heightLeft=imgHeight
+let position=10
 
 pdf.addImage(imgData,"JPEG",10,position,imgWidth,imgHeight)
-heightLeft -= pageHeight
+heightLeft-=pageHeight
 
-while(heightLeft > 0){
-position = heightLeft - imgHeight
+while(heightLeft>0){
+position=heightLeft-imgHeight
 pdf.addPage()
 pdf.addImage(imgData,"JPEG",10,position,imgWidth,imgHeight)
-heightLeft -= pageHeight
+heightLeft-=pageHeight
 }
 
 pdf.save("Mock_"+mockTestNo.replace(/\s+/g,'_')+".pdf")
