@@ -154,7 +154,7 @@ let questions=[
 {
 id:1,
 en:"Which part of an IP address identifies the network?",
-hi:"IP address का कौन-सा भाग network को पहचानता है?",
+hi:"IP address का कौन-सा भाग नेटवर्क को पहचानता है?",
 A:"Host ID",
 B:"Network ID",
 C:"Port Number",
@@ -165,7 +165,7 @@ ans:"B"
 {
 id:2,
 en:"IPv4 addresses are written using:",
-hi:"IPv4 address किस रूप में लिखा जाता है?",
+hi:"IPv4 address किस notation में लिखा जाता है?",
 A:"Binary notation",
 B:"Hexadecimal notation",
 C:"Dotted decimal notation",
@@ -176,7 +176,7 @@ ans:"C"
 {
 id:3,
 en:"How many bits are there in an IPv4 address?",
-hi:"IPv4 address में कितने bits होते हैं?",
+hi:"IPv4 address में कुल कितने bits होते हैं?",
 A:"16",
 B:"32",
 C:"64",
@@ -187,7 +187,7 @@ ans:"B"
 {
 id:4,
 en:"How many bits are there in an IPv6 address?",
-hi:"IPv6 address में कितने bits होते हैं?",
+hi:"IPv6 address में कुल कितने bits होते हैं?",
 A:"32",
 B:"64",
 C:"128",
@@ -198,7 +198,7 @@ ans:"C"
 {
 id:5,
 en:"Which routing protocol uses hop count as its metric?",
-hi:"कौन-सा routing protocol hop count का उपयोग करता है?",
+hi:"कौन-सा routing protocol hop count को metric के रूप में उपयोग करता है?",
 A:"OSPF",
 B:"RIP",
 C:"BGP",
@@ -242,7 +242,7 @@ ans:"C"
 {
 id:9,
 en:"Which field in IPv4 header specifies how long a packet can remain in the network?",
-hi:"IPv4 header का कौन-सा field packet के network में रहने का समय बताता है?",
+hi:"IPv4 header का कौन-सा field यह बताता है कि packet कितनी देर तक network में रह सकता है?",
 A:"TTL",
 B:"Protocol",
 C:"Header Length",
@@ -259,12 +259,11 @@ B:"24 bytes",
 C:"32 bytes",
 D:"40 bytes",
 ans:"A"
-},
-
+}, 
 {
 id:11,
 en:"Which IPv4 class provides the largest number of host addresses?",
-hi:"कौन-सा IPv4 class सबसे अधिक host address देता है?",
+hi:"IPv4 की कौन-सी class सबसे अधिक host addresses प्रदान करती है?",
 A:"Class A",
 B:"Class B",
 C:"Class C",
@@ -275,7 +274,7 @@ ans:"A"
 {
 id:12,
 en:"Which IPv4 class is reserved for multicast?",
-hi:"IPv4 का कौन-सा class multicast के लिए होता है?",
+hi:"IPv4 की कौन-सी class multicast के लिए reserved होती है?",
 A:"Class A",
 B:"Class C",
 C:"Class D",
@@ -297,7 +296,7 @@ ans:"A"
 {
 id:14,
 en:"Which IPv4 address range is reserved for private networks?",
-hi:"कौन-सा IPv4 address range private network के लिए reserved है?",
+hi:"IPv4 का कौन-सा address range private networks के लिए reserved है?",
 A:"8.0.0.0 – 8.255.255.255",
 B:"192.168.0.0 – 192.168.255.255",
 C:"150.0.0.0 – 150.255.255.255",
@@ -308,7 +307,7 @@ ans:"B"
 {
 id:15,
 en:"Which routing protocol is commonly used between autonomous systems?",
-hi:"Autonomous systems के बीच कौन-सा routing protocol उपयोग होता है?",
+hi:"Autonomous systems के बीच सामान्यतः कौन-सा routing protocol उपयोग होता है?",
 A:"RIP",
 B:"OSPF",
 C:"BGP",
@@ -330,7 +329,7 @@ ans:"B"
 {
 id:17,
 en:"Which IPv6 address type is used to communicate with a single interface?",
-hi:"IPv6 में single interface से communication के लिए कौन-सा address type उपयोग होता है?",
+hi:"IPv6 में कौन-सा address type एक single interface से communication के लिए उपयोग होता है?",
 A:"Multicast",
 B:"Broadcast",
 C:"Unicast",
@@ -341,7 +340,7 @@ ans:"C"
 {
 id:18,
 en:"IPv6 does not support which addressing type used in IPv4?",
-hi:"IPv6 में IPv4 का कौन-सा addressing type supported नहीं है?",
+hi:"IPv6 में IPv4 की कौन-सी addressing type supported नहीं है?",
 A:"Unicast",
 B:"Multicast",
 C:"Broadcast",
@@ -352,7 +351,7 @@ ans:"C"
 {
 id:19,
 en:"Which field identifies the next protocol in the IPv6 header?",
-hi:"IPv6 header में अगला protocol किस field से पहचाना जाता है?",
+hi:"IPv6 header में कौन-सा field next protocol को identify करता है?",
 A:"Hop Limit",
 B:"Next Header",
 C:"Payload Length",
@@ -363,7 +362,7 @@ ans:"B"
 {
 id:20,
 en:"The version field in IPv4 header contains:",
-hi:"IPv4 header का version field क्या दर्शाता है?",
+hi:"IPv4 header में version field क्या दर्शाता है?",
 A:"Protocol type",
 B:"IP version number",
 C:"Packet size",
@@ -374,7 +373,7 @@ ans:"B"
 {
 id:21,
 en:"Which protocol is used to discover the MAC address of a device in a network?",
-hi:"Network में किसी device का MAC address पता करने के लिए कौन-सा protocol उपयोग होता है?",
+hi:"Network में किसी device का MAC address जानने के लिए कौन-सा protocol उपयोग होता है?",
 A:"ARP",
 B:"DNS",
 C:"FTP",
@@ -407,7 +406,7 @@ ans:"B"
 {
 id:24,
 en:"The subnet mask 255.255.255.0 represents:",
-hi:"Subnet mask 255.255.255.0 क्या दर्शाता है?",
+hi:"Subnet mask 255.255.255.0 किसको दर्शाता है?",
 A:"/16 network",
 B:"/24 network",
 C:"/32 network",
@@ -429,7 +428,7 @@ ans:"B"
 {
 id:26,
 en:"ASCII stands for:",
-hi:"ASCII का पूर्ण रूप क्या है?",
+hi:"ASCII का full form क्या है?",
 A:"American Standard Code for Information Interchange",
 B:"Automatic Standard Code for Information Interface",
 C:"American System Code for Information Interchange",
@@ -440,7 +439,7 @@ ans:"A"
 {
 id:27,
 en:"Standard ASCII uses how many bits to represent each character?",
-hi:"Standard ASCII प्रत्येक character के लिए कितने bits उपयोग करता है?",
+hi:"Standard ASCII में प्रत्येक character को कितने bits में दर्शाया जाता है?",
 A:"6",
 B:"7",
 C:"8",
@@ -462,7 +461,7 @@ ans:"B"
 {
 id:29,
 en:"How many characters can be represented using standard ASCII?",
-hi:"Standard ASCII से कितने characters represent किए जा सकते हैं?",
+hi:"Standard ASCII से कुल कितने characters represent किए जा सकते हैं?",
 A:"64",
 B:"128",
 C:"256",
@@ -473,18 +472,17 @@ ans:"B"
 {
 id:30,
 en:"EBCDIC stands for:",
-hi:"EBCDIC का पूर्ण रूप क्या है?",
+hi:"EBCDIC का full form क्या है?",
 A:"Extended Binary Code for Data Interchange Code",
 B:"Extended Binary Coded Decimal Interchange Code",
 C:"Electronic Binary Code for Data Interchange Code",
 D:"Extended Binary Character Data Interface Code",
 ans:"B"
-},
-
+}, 
 {
 id:31,
 en:"EBCDIC was mainly developed by:",
-hi:"EBCDIC मुख्य रूप से किसने विकसित किया?",
+hi:"EBCDIC मुख्यतः किसने विकसित किया था?",
 A:"Microsoft",
 B:"IBM",
 C:"Intel",
@@ -495,7 +493,7 @@ ans:"B"
 {
 id:32,
 en:"Which encoding scheme is mainly used in IBM mainframe systems?",
-hi:"IBM mainframe systems में मुख्य रूप से कौन-सा encoding scheme उपयोग होता है?",
+hi:"IBM mainframe systems में मुख्यतः कौन-सा encoding scheme उपयोग होता है?",
 A:"ASCII",
 B:"Unicode",
 C:"EBCDIC",
@@ -505,8 +503,8 @@ ans:"C"
 
 {
 id:33,
-en:"ASCII code for the character 'A' in decimal is:",
-hi:"Character 'A' का ASCII code (decimal में) क्या है?",
+en:"ASCII code for the character ‘A’ in decimal is:",
+hi:"Character ‘A’ का ASCII code (decimal में) क्या है?",
 A:"64",
 B:"65",
 C:"66",
@@ -516,8 +514,8 @@ ans:"B"
 
 {
 id:34,
-en:"ASCII code for digit '0' starts from decimal:",
-hi:"Digit '0' का ASCII code (decimal में) किससे शुरू होता है?",
+en:"ASCII code for digit ‘0’ starts from decimal:",
+hi:"Digit ‘0’ का ASCII code (decimal में) कहाँ से शुरू होता है?",
 A:"46",
 B:"48",
 C:"50",
@@ -539,7 +537,7 @@ ans:"D"
 {
 id:36,
 en:"What does HTML stand for?",
-hi:"HTML का पूर्ण रूप क्या है?",
+hi:"HTML का full form क्या है?",
 A:"Hyperlinks and Text Markup Language",
 B:"Hyper Text Markup Language",
 C:"Hyper Transfer Markup Language",
@@ -550,7 +548,7 @@ ans:"B"
 {
 id:37,
 en:"XHTML stands for:",
-hi:"XHTML का पूर्ण रूप क्या है?",
+hi:"XHTML का full form क्या है?",
 A:"Extended Hyper Text Markup Language",
 B:"Extensible Hyper Text Markup Language",
 C:"Extra Hyper Text Markup Language",
@@ -561,7 +559,7 @@ ans:"B"
 {
 id:38,
 en:"Which of the following is a key rule in XHTML?",
-hi:"XHTML का एक महत्वपूर्ण नियम कौन-सा है?",
+hi:"निम्न में से XHTML का एक मुख्य नियम कौन-सा है?",
 A:"Tags may remain unclosed",
 B:"Tags must be properly closed",
 C:"Uppercase tags are mandatory",
@@ -589,7 +587,7 @@ B:"&lt;a&gt;",
 C:"&lt;href&gt;",
 D:"&lt;url&gt;",
 ans:"B"
-},
+}, 
 
 {
 id:41,
@@ -605,7 +603,7 @@ ans:"B"
 {
 id:42,
 en:"Which layer of the TCP/IP model corresponds to the Transport layer of the OSI model?",
-hi:"TCP/IP model की कौन-सी layer OSI model की Transport layer के बराबर होती है?",
+hi:"TCP/IP model की कौन-सी layer OSI model की Transport layer के समान होती है?",
 A:"Network Interface Layer",
 B:"Application Layer",
 C:"Transport Layer",
@@ -627,7 +625,7 @@ ans:"A"
 {
 id:44,
 en:"In error control, which method uses an additional bit to detect errors in transmitted data?",
-hi:"Error control में कौन-सी method अतिरिक्त bit का उपयोग करके error detect करती है?",
+hi:"Error control में कौन-सी method extra bit का उपयोग करके error detect करती है?",
 A:"Checksum",
 B:"Parity Bit",
 C:"Cyclic Redundancy Check",
@@ -638,7 +636,7 @@ ans:"B"
 {
 id:45,
 en:"CRC in data communication stands for:",
-hi:"Data communication में CRC का पूर्ण रूप क्या है?",
+hi:"Data communication में CRC का full form क्या है?",
 A:"Cyclic Redundancy Check",
 B:"Central Routing Control",
 C:"Cyclic Routing Code",
@@ -699,12 +697,12 @@ B:"B",
 C:"C",
 D:"D",
 ans:"A"
-},
+}, 
 
 {
 id:51,
 en:"Which register in 8086 holds the address of the next instruction to be executed?",
-hi:"8086 में कौन-सा register अगले instruction का address रखता है?",
+hi:"8086 में अगली instruction का address किस register में होता है?",
 A:"AX",
 B:"BX",
 C:"IP",
@@ -714,25 +712,25 @@ ans:"C"
 
 {
 id:52,
-en:"Consider processes P1=4, P2=3, P3=2. Using FCFS scheduling, what is the average waiting time?",
-hi:"Processes P1=4, P2=3, P3=2 के लिए FCFS scheduling में average waiting time क्या होगा?",
+en:"Consider the following processes with burst times:\n\nProcess   Burst Time\nP1        4\nP2        3\nP3        2\n\nUsing FCFS scheduling, what is the average waiting time?",
+hi:"निम्न processes के burst time दिए गए हैं:\n\nProcess   Burst Time\nP1        4\nP2        3\nP3        2\n\nFCFS scheduling का उपयोग करते हुए average waiting time क्या होगा?",
 A:"3",
 B:"4",
 C:"3.67",
 D:"2",
-ans:"A"
+ans:"C"
 },
 
 {
 id:53,
-en:"Processes P1=6, P2=8, P3=7, P4=3. Using SJF (non-preemptive), average waiting time is:",
-hi:"Processes P1=6, P2=8, P3=7, P4=3 के लिए SJF (non-preemptive) में average waiting time क्या होगा?",
+en:"Consider the processes with burst times:\n\nProcess   Burst Time\nP1        6\nP2        8\nP3        7\nP4        3\n\nUsing SJF (Non-preemptive) scheduling, what is the average waiting time?",
+hi:"निम्न processes के burst time दिए गए हैं:\n\nProcess   Burst Time\nP1        6\nP2        8\nP3        7\nP4        3\n\nSJF (Non-preemptive) scheduling का उपयोग करते हुए average waiting time क्या होगा?",
 A:"6.25",
 B:"7.5",
 C:"8",
 D:"5.5",
 ans:"A"
-},
+}, 
 
 {
 id:54,
