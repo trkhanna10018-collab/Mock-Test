@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<meta charset="UTF-8">
+<title>Mock Test</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI', sans-serif;
+background:linear-gradient(135deg,#eef2ff,#e0f2fe);
+color:#1e293b;
+}
+
+/* HEADER */
+.header{
+text-align:center;
+padding:20px 10px;
+font-size:24px;
+font-weight:600;
+color:#4338ca;
+}
+
+/* TIMER */
+.timer{
+text-align:center;
+font-size:20px;
+font-weight:bold;
+margin-bottom:10px;
+color:#dc2626;
+}
+
+/* CARD */
+.card{
+max-width:750px;
+margin:20px auto;
+padding:25px;
+border-radius:16px;
+background:white;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* INPUT */
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+font-size:16px;
+color:white;
+background:linear-gradient(135deg,#6366f1,#3b82f6);
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+/* QUESTION */
+h3{
+font-size:30px;
+margin-bottom:10px;
+}
+
+p{
+font-size:22px;
+margin-bottom:15px;
+}
+
+/* OPTIONS */
+.option{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #e2e8f0;
+background:#f8fafc;
+font-size:20px;
+cursor:pointer;
+}
+
+.option input{
+width:auto !important;
+margin:0;
+}
+
+.option:hover{
+background:#e0f2fe;
+border-color:#3b82f6;
+}
+
+.option span{
+flex:1;
+text-align:left;
+}
+
+#count{
+font-size:50px;
+font-weight:bold;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header" id="testTitle"></div>
+<div class="timer" id="timer" style="display:none"></div>
+
+<div class="card" id="formBox">
+<h3>Enter Details</h3>
+<input id="name" placeholder="Enter Name">
+<input id="phone" placeholder="Enter Phone">
+<button onclick="startCountdown()">Start Test</button>
+</div>
+
+<div class="card" id="countBox" style="display:none">
+<h2 style="text-align:center">Test will start in</h2>
+<div id="count">5</div>
+</div>
+
+<div class="card" id="questionBox" style="display:none"></div>
+
+<div class="card" id="resultBox" style="display:none"></div>
+
+<script>
+
+/* CHANGE HERE */
+let mockTestNo = "Mock Test 11"
+
+document.getElementById("testTitle").innerHTML =
+"JUNIOR OFFICE ASSISTANT (IT)<br><span style='font-size:15px'>Competitive Examination</span>"
+
+let questions=[
+
+]
+let current=0
+let score=0
+let userAnswers={}
+
+let name=""
+let phone=""
+
+let time=5400
+let timerInterval
+
+function startCountdown(){
+
+name=document.getElementById("name").value
+phone=document.getElementById("phone").value
+
+if(name=="" || phone==""){
+alert("Enter details")
+return
+}
+
+document.getElementById("formBox").style.display="none"
+document.getElementById("countBox").style.display="block"
+
+let t=5
+
+let c=setInterval(()=>{
+document.getElementById("count").innerText=t
+t--
+
+if(t<0){
+clearInterval(c)
+document.getElementById("countBox").style.display="none"
+document.getElementById("questionBox").style.display="block"
+document.getElementById("timer").style.display="block"
+
+startTimer()
+showQuestion()
+}
+
+},1000)
+}
+
+function startTimer(){
+timerInterval=setInterval(()=>{
+let m=Math.floor(time/60)
+let s=time%60
+document.getElementById("timer").innerText="⏱ "+m+":"+(s<10?"0":"")+s
+time--
+
+if(time<0){
+clearInterval(timerInterval)
+showResult()
+}
+},1000)
+}
+
+function showQuestion(){
+
+let q=questions[current]
+
+let html=""
+
+html+=`<b>${name}</b> | ${phone}<br><br>`
+
+html+=`<h3>Q${current+1}/${questions.length}. ${q.en}</h3>`
+html+=`<p>${q.hi}</p>`
+
+html+=`<label class="option"><input type="radio" name="ans" value="A"> A. ${q.A}</label>`
+html+=`<label class="option"><input type="radio" name="ans" value="B"> B. ${q.B}</label>`
+html+=`<label class="option"><input type="radio" name="ans" value="C"> C. ${q.C}</label>`
+html+=`<label class="option"><input type="radio" name="ans" value="D"> D. ${q.D}</label>`
+
+html+=`<br><button onclick="nextQuestion()">Next</button>`
+
+document.getElementById("questionBox").innerHTML=html
+}
+
+function nextQuestion(){
+
+let selected=document.querySelector('input[name="ans"]:checked')
+
+if(selected){
+userAnswers[current]=selected.value
+if(selected.value==questions[current].ans){
+score++
+}
+}
+
+current++
+
+if(current<questions.length){
+showQuestion()
+}else{
+showResult()
+}
+}
+
+function showResult(){
+
+clearInterval(timerInterval)
+
+document.getElementById("questionBox").style.display="none"
+
+let box=document.getElementById("resultBox")
+box.style.display="block"
+
+let html=""
+
+html+=`<h2>Result</h2>`
+html+=`<b>Name:</b> ${name}<br>`
+html+=`<b>Phone:</b> ${phone}<br>`
+html+=`<b>Test:</b> ${mockTestNo}<br>`
+html+=`<b>Score:</b> ${score}/${questions.length}<br><br>`
+
+questions.forEach((q,i)=>{
+html+=`<hr>`
+html+=`<b>Q${i+1}. ${q.en}</b><br>`
+html+=`${q.hi}<br><br>`
+html+=`A. ${q.A}<br>`
+html+=`B. ${q.B}<br>`
+html+=`C. ${q.C}<br>`
+html+=`D. ${q.D}<br><br>`
+html+=`Your Answer: ${userAnswers[i] || "Not Attempted"}<br>`
+html+=`Correct Answer: ${q.ans}<br>`
+})
+
+html+=`<br><button onclick="downloadPDF()">Download PDF</button>`
+
+box.innerHTML=html
+}
+
+async function downloadPDF(){
+
+const { jsPDF } = window.jspdf
+
+let element=document.getElementById("resultBox")
+
+element.style.background="#fff"
+element.style.color="#000"
+
+await new Promise(r=>setTimeout(r,800))
+
+let canvas=await html2canvas(element,{scale:1.5})
+
+let imgData=canvas.toDataURL("image/jpeg",0.5)
+
+let pdf=new jsPDF("p","mm","a4")
+
+let imgWidth=190
+let pageHeight=297
+let imgHeight=canvas.height*imgWidth/canvas.width
+
+let heightLeft=imgHeight
+let position=10
+
+pdf.addImage(imgData,"JPEG",10,position,imgWidth,imgHeight)
+heightLeft-=pageHeight
+
+while(heightLeft>0){
+position=heightLeft-imgHeight
+pdf.addPage()
+pdf.addImage(imgData,"JPEG",10,position,imgWidth,imgHeight)
+heightLeft-=pageHeight
+}
+
+pdf.save(mockTestNo.replace(/\s+/g,'_')+".pdf")
+}
+
+</script>
+<script src="auth.js"></script>
+</body>
+</html>
