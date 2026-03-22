@@ -21,7 +21,6 @@ background:#4f46e5;
 color:white;
 padding:10px;
 text-align:center;
-font-size:14px;
 }
 
 /* HEADER */
@@ -38,7 +37,7 @@ z-index:1000;
 }
 
 .menu{
-font-size:22px;
+font-size:30px; /* 🔥 बड़ा किया */
 cursor:pointer;
 }
 
@@ -48,34 +47,50 @@ font-weight:bold;
 color:#4f46e5;
 }
 
-/* SIDEBAR */
+/* SIDEBAR FULL SCREEN */
 .sidebar{
 position:fixed;
-left:-250px;
 top:0;
-width:250px;
+left:-100%;
+width:100%;
 height:100%;
 background:#111827;
 color:white;
-padding:20px;
-transition:0.3s;
+padding:30px;
+transition:0.4s;
 z-index:2000;
-}
-
-.sidebar a{
-display:block;
-color:white;
-text-decoration:none;
-margin:15px 0;
 }
 
 .sidebar.active{
 left:0;
 }
 
+/* CLOSE BTN */
+.close{
+font-size:28px;
+margin-bottom:20px;
+cursor:pointer;
+}
+
+/* MENU ITEMS */
+.sidebar a{
+display:block;
+padding:15px;
+margin:10px 0;
+background:#1f2937;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-size:18px;
+}
+
+.sidebar a:hover{
+background:#374151;
+}
+
 /* HERO */
 .hero{
-padding:30px 15px;
+padding:30px;
 text-align:center;
 background:linear-gradient(135deg,#4f46e5,#9333ea);
 color:white;
@@ -83,16 +98,6 @@ color:white;
 
 .hero img{
 height:120px;
-margin-bottom:10px;
-}
-
-.hero h1{
-font-size:28px;
-}
-
-.hero p{
-font-size:14px;
-opacity:0.9;
 }
 
 /* GRID */
@@ -109,35 +114,6 @@ padding:20px;
 border-radius:15px;
 text-align:center;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card h3{
-margin-top:10px;
-font-size:16px;
-}
-
-/* SECTION */
-.section{
-padding:20px;
-}
-
-.section h2{
-margin-bottom:15px;
-}
-
-/* BANNER */
-.banner{
-background:linear-gradient(45deg,#22c55e,#16a34a);
-color:white;
-padding:20px;
-border-radius:15px;
-margin:20px;
-text-align:center;
 }
 
 /* FOOTER */
@@ -147,129 +123,133 @@ color:white;
 padding:20px;
 text-align:center;
 }
+
+/* DUMMY PAGE */
+.page{
+display:none;
+padding:20px;
+}
+
+.back{
+background:#4f46e5;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+display:inline-block;
+margin-bottom:15px;
+cursor:pointer;
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- TOP -->
-<div class="topbar">
-🔥 New Mock Tests Coming Weekly!
-</div>
+<div class="topbar">🔥 Weekly Mock Tests</div>
 
-<!-- HEADER -->
 <div class="header">
-<div class="menu" onclick="toggleMenu()">☰</div>
+<div class="menu" onclick="openMenu()">☰</div>
 <div class="logo">HPMockShashtra</div>
 <div>🔍</div>
 </div>
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-<h3>Menu</h3>
-<a href="#">Home</a>
-<a href="login.html">JOA IT</a>
-<a href="#">HP Patwari</a>
-<a href="#">HP JBT</a>
-<a href="#">HP Police</a>
-<a href="#">GK</a>
-<a href="#">Current Affairs</a>
+
+<div class="close" onclick="closeMenu()">✖</div>
+
+<a onclick="openPage('home')">🏠 Home</a>
+<a onclick="openPage('joa')">💻 JOA IT</a>
+<a onclick="openPage('patwari')">📍 HP Patwari</a>
+<a onclick="openPage('jbt')">👩‍🏫 HP JBT</a>
+<a onclick="openPage('police')">👮 HP Police</a>
+<a onclick="openPage('gk')">📚 GK</a>
+
 </div>
 
-<!-- HERO -->
+<!-- HOME -->
+<div id="home" class="page" style="display:block">
+
 <div class="hero">
 <img src="logo.png">
 <h1>HPMockShashtra</h1>
-<p>All HP Exams Mock Platform</p>
+<p>All HP Exams Platform</p>
 </div>
-
-<!-- MAIN OPTIONS -->
-<div class="section">
-<h2>📌 What You Want?</h2>
 
 <div class="grid">
-
-<div class="card">
-<h3>💻 JOA IT Mock</h3>
-<a href="login.html">Start</a>
-</div>
-
-<div class="card">
-<h3>📍 HP Patwari</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="card">
-<h3>👮 HP Police</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="card">
-<h3>👩‍🏫 HP JBT</h3>
-<p>Coming Soon</p>
+<div class="card" onclick="openPage('joa')">💻 JOA IT</div>
+<div class="card" onclick="openPage('patwari')">📍 Patwari</div>
+<div class="card" onclick="openPage('jbt')">👩‍🏫 JBT</div>
+<div class="card" onclick="openPage('police')">👮 Police</div>
 </div>
 
 </div>
+
+<!-- JOA PAGE -->
+<div id="joa" class="page">
+<div class="back" onclick="goBack()">⬅ Back</div>
+<h2>JOA IT Mock</h2>
+<p>👉 <a href="login.html">Start Test</a></p>
 </div>
 
-<!-- FEATURES -->
-<div class="section">
-<h2>📊 Features</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>⏱ Timer Based</h3>
+<!-- PATWARI -->
+<div id="patwari" class="page">
+<div class="back" onclick="goBack()">⬅ Back</div>
+<h2>HP Patwari</h2>
+<p>Coming Soon...</p>
 </div>
 
-<div class="card">
-<h3>📈 Result Analysis</h3>
+<!-- JBT -->
+<div id="jbt" class="page">
+<div class="back" onclick="goBack()">⬅ Back</div>
+<h2>HP JBT</h2>
+<p>Coming Soon...</p>
 </div>
 
-<div class="card">
-<h3>🌐 Hindi + English</h3>
+<!-- POLICE -->
+<div id="police" class="page">
+<div class="back" onclick="goBack()">⬅ Back</div>
+<h2>HP Police</h2>
+<p>Coming Soon...</p>
 </div>
 
-<div class="card">
-<h3>🎯 Real Exam UI</h3>
+<!-- GK -->
+<div id="gk" class="page">
+<div class="back" onclick="goBack()">⬅ Back</div>
+<h2>GK Section</h2>
+<p>Coming Soon...</p>
 </div>
 
-</div>
-</div>
-
-<!-- BANNER -->
-<div class="banner">
-🔥 Limited Offer ₹199  
-<br><br>
-Unlock Full Mock Series Now
-</div>
-
-<!-- MORE SECTIONS -->
-<div class="section">
-<h2>📚 Study Zone</h2>
-
-<div class="grid">
-
-<div class="card">HP GK</div>
-<div class="card">Previous Papers</div>
-<div class="card">Current Affairs</div>
-<div class="card">Notifications</div>
-
-</div>
-</div>
-
-<!-- FOOTER -->
 <div class="footer">
-© HPMockShashtra  
-<br>
-Terms | Privacy
+© HPMockShashtra
 </div>
 
 <script>
-function toggleMenu(){
-document.getElementById("sidebar").classList.toggle("active")
+
+function openMenu(){
+document.getElementById("sidebar").classList.add("active")
 }
+
+function closeMenu(){
+document.getElementById("sidebar").classList.remove("active")
+}
+
+function openPage(id){
+
+let pages=document.getElementsByClassName("page")
+
+for(let i=0;i<pages.length;i++){
+pages[i].style.display="none"
+}
+
+document.getElementById(id).style.display="block"
+closeMenu()
+}
+
+function goBack(){
+openPage("home")
+}
+
 </script>
 
 </body>
